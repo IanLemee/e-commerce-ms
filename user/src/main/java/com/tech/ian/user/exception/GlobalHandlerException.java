@@ -1,0 +1,49 @@
+package com.tech.ian.user.exception;
+
+import com.tech.ian.user.exception.exceptions.UserAlreadyExistException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.context.request.WebRequest;
+
+import java.time.Instant;
+
+@RestControllerAdvice
+public class GlobalHandlerException {
+
+    @ExceptionHandler(UserAlreadyExistException.class)
+    public ResponseEntity<Object> handleUserAlreadyExist(UserAlreadyExistException exception, WebRequest request) {
+        Instant timestamp = Instant.now();
+        HttpStatus status = HttpStatus.CONFLICT;
+        int code = status.value();
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                timestamp,
+                code,
+                status.toString(),
+                exception.getMessage(),
+                path
+        );
+        return new ResponseEntity<>(errorResponse, status);
+    }
+
+    @ExceptionHandler(BaseAppException.class)
+    public ResponseEntity<Object> handlerGenericException(BaseAppException exception, WebRequest request) {
+        Instant timestamp = Instant.now();
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        int code = status.value();
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        ErrorResponse errorResponse = new ErrorResponse(
+                timestamp,
+                code,
+                status.toString(),
+                exception.getMessage(),
+                path
+        );
+
+        return new ResponseEntity<>(errorResponse, status);
+    }
+}
