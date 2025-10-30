@@ -5,7 +5,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.hibernate.internal.util.SubSequence;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -16,8 +15,6 @@ import java.nio.file.Paths;
 import java.security.Key;
 import java.time.Instant;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.UUID;
 
 @Service
 public class JwtUtils {
