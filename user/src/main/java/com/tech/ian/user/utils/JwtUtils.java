@@ -1,5 +1,6 @@
 package com.tech.ian.user.utils;
 
+import com.tech.ian.user.model.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -30,13 +31,13 @@ public class JwtUtils {
     public JwtUtils() throws IOException {
     }
 
-    public String generateToken(String email, HashMap<String, UUID> map) {
+    public String generateToken(UserEntity user) {
         return Jwts
                 .builder()
-                .setSubject(email)
+                .setSubject(user.getEmail())
                 .setIssuedAt(Date.from(Instant.now()))
                 .setExpiration(Date.from(Instant.now().plusSeconds(60*60)))
-                .setClaims(map)
+                .claim("uuid", user.getUuid())
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
