@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public UserRegisterResponseDto create(UserRegisterRequestDto req) {
-        if (getUserEntity(req).isPresent()) {
+        if (getUserEntity(req.email()).isPresent()) {
             throw new UserAlreadyExistException();
         }
         UserEntity user = mapper.mapRegistryToEntity(req);
@@ -44,7 +44,7 @@ public class UserService {
         return mapper.mapEntityToRegistry(user);
     }
 
-    public Optional<UserEntity> getUserEntity(UserRegisterRequestDto req) {
-        return userRepository.findUserByEmail(req.email().toLowerCase());
+    public Optional<UserEntity> getUserEntity(String email) {
+        return userRepository.findUserByEmail(email.toLowerCase());
     }
 }
