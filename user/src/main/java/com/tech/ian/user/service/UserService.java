@@ -6,9 +6,10 @@ import com.tech.ian.user.model.UserEntity;
 import com.tech.ian.user.model.UserRegisterRequestDto;
 import com.tech.ian.user.model.UserRegisterResponseDto;
 import com.tech.ian.user.repo.UserRepository;
+import com.tech.ian.user.utils.Mapper;
+import com.tech.ian.user.utils.VerificationCodeGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.tech.ian.user.utils.Mapper;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -19,15 +20,16 @@ public class UserService {
     private final UserRepository userRepository;
     private final Mapper mapper;
     private final PasswordEncoder passwordEncoder;
+    private final VerificationCodeGenerator codeGenerator;
 
-    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.passwordEncoder = passwordEncoder;
+        this.codeGenerator = codeGenerator;
     }
 
-    public UserRegisterResponseDto create(UserRegisterRequestDto req) throws Exception {
-
+    public UserRegisterResponseDto create(UserRegisterRequestDto req) {
         if (getUserEntity(req).isPresent()) {
             throw new UserAlreadyExistException();
         }
@@ -36,12 +38,13 @@ public class UserService {
         user.setEmail(req.email().toLowerCase());
         user.setPassword(passwordEncoder.encode(req.password()));
         user.setRole(Role.USER);
+        user.setEnabled(false);
+        user.setVerificationCode(codeGenerator.generate());
         userRepository.save(user);
-        mapper.mapEntityToRegistry(user);
-        return null;
+        return mapper.mapEntityToRegistry(user);
     }
 
-    private Optional<UserEntity> getUserEntity(UserRegisterRequestDto req) {
-        return userRepository.loadUserByUsername(req.email().toLowerCase());
+    public Optional<UserEntity> getUserEntity(UserRegisterRequestDto req) {
+        return userRepository.findUserByEmail(req.email().toLowerCase());
     }
 }
