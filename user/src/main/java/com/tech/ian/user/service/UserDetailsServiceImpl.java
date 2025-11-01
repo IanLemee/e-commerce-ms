@@ -1,7 +1,6 @@
 package com.tech.ian.user.service;
 
 import com.tech.ian.user.repo.UserRepository;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,6 +17,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return repository.loadUserByUsername(email).orElseThrow(() -> new UsernameNotFoundException("Email not found"));
+        return repository.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Email not found"));
     }
 }
