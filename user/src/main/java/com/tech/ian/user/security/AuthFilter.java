@@ -30,28 +30,25 @@ public class AuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = getToken(request);
 
-        if (token == null) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-        String username = jwtUtils.getUsername(token);
+        if (token != null) {
+            String username = jwtUtils.getUsername(token);
 
-        if (jwtUtils.verifyToken(token, username) && SecurityContextHolder.getContext() == null) {
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(),
-                    null,
-                    userDetails.getAuthorities()
-            );
-            authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            if (jwtUtils.verifyToken(token, username) && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails.getUsername(),
+                        null,
+                        userDetails.getAuthorities()
+                );
+                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            }
         }
-
         filterChain.doFilter(request, response);
     }
 
     private String getToken(HttpServletRequest request) {
         String authorization = request.getHeader("Authorization");
-        if (authorization == null || authorization.startsWith("Bearer ")) {
+        if (authorization == null || !authorization.startsWith("Bearer ")) {
             return null;
         }
 
