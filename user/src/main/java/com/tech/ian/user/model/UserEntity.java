@@ -22,14 +22,25 @@ import java.util.UUID;
 public class UserEntity implements UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
+    @Column(name = "user_uuid")
     private UUID uuid;
+    @Column(name = "user_name")
     private String name;
+    @Column(name = "user_email")
     private String email;
+    @Column(name = "user_password")
     private String password;
+    @Column(name = "user_profile_pic")
     private String profilePicture;
     @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
     private Role role;
+    @Column(name = "user_acct_active")
+    private boolean isEnabled;
+    @Column(name = "user_verification_code")
+    private int verificationCode;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,6 +74,6 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
+        return this.isEnabled;
     }
 }
