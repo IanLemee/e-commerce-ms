@@ -11,7 +11,7 @@ public class VerificationCodeGenerator {
 
     public int generate() {
         Random random = new Random();
-        IntStream ints = random.ints(0, 7);
+        IntStream ints = random.ints(1, 10);
         ints.limit(6).forEach((i) -> {
             code = (code * 10) + i;
         });
