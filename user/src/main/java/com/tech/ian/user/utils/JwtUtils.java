@@ -4,12 +4,10 @@ import com.tech.ian.user.model.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +21,6 @@ import java.util.Base64;
 import java.util.Date;
 
 @Service
-@Log4j2
 public class JwtUtils {
 
     private final Path path = Paths.get("user/privatekey.pem");
