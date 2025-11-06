@@ -3,19 +3,17 @@ package com.tech.ian.user.utils;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
-import java.util.stream.IntStream;
 
 @Component
 public class VerificationCodeGenerator {
-    private int code = 0;
 
     public int generate() {
+        int code = 0;
         Random random = new Random();
-        IntStream ints = random.ints(1, 10);
-        ints.limit(6).forEach((i) -> {
-            code = (code * 10) + i;
-        });
-
+        for (int i = 0; i < 6 ; i++) {
+            int r = random.nextInt(1, 10);
+            code = (code * 10) + r;
+        }
         return code;
     }
 }

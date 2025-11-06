@@ -1,6 +1,9 @@
 package com.tech.ian.user.exception;
 
+import com.tech.ian.user.exception.exceptions.UserAlreadyEnabledException;
 import com.tech.ian.user.exception.exceptions.UserAlreadyExistException;
+import com.tech.ian.user.exception.exceptions.WrongVerificationCodeException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,6 +22,40 @@ public class GlobalHandlerException {
         HttpStatus status = HttpStatus.CONFLICT;
         int code = status.value();
         String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                timestamp,
+                code,
+                status.toString(),
+                exception.getMessage(),
+                path
+        );
+        return new ResponseEntity<>(errorResponse, status);
+    }
+
+    @ExceptionHandler(UserAlreadyEnabledException.class)
+    public ResponseEntity<Object> userAlreadyEnabledException(UserAlreadyEnabledException exception, HttpServletRequest request) {
+        Instant timestamp = Instant.now();
+        HttpStatus status = HttpStatus.CONFLICT;
+        int code = status.value();
+        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                timestamp,
+                code,
+                status.toString(),
+                exception.getMessage(),
+                path
+        );
+        return new ResponseEntity<>(errorResponse, status);
+    }
+
+    @ExceptionHandler(WrongVerificationCodeException.class)
+    public ResponseEntity<Object> wrongVerificationCodeException(WrongVerificationCodeException exception, HttpServletRequest request) {
+        Instant timestamp = Instant.now();
+        HttpStatus status = HttpStatus.CONFLICT;
+        int code = status.value();
+        String path = request.getContextPath();
 
         ErrorResponse errorResponse = new ErrorResponse(
                 timestamp,
