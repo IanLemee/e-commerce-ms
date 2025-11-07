@@ -50,6 +50,20 @@ public class UserService {
         return mapper.mapEntityToRegistry(user);
     }
 
+    private UserEntity buildUserEntity(UserRegisterRequestDto req, String url) {
+        String encode = passwordEncoder.encode(req.password());
+        return UserEntity.builder()
+                .uuid(UUID.randomUUID())
+                .name(req.name())
+                .email(req.email().toLowerCase())
+                .password(encode)
+                .profilePicture(url)
+                .role(Role.USER)
+                .isEnabled(false)
+                .verificationCode(codeGenerator.generate())
+                .build();
+    }
+
     public void activeAccount(String email, int code) {
         UserEntity userEntity = getUserEntity(email).get();
         if (userEntity.getVerificationCode() == code) {
