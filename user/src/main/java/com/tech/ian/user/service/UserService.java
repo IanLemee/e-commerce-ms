@@ -28,6 +28,8 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final VerificationCodeGenerator codeGenerator;
     private final KafkaTemplate<String, UserEmailVerificationDto> kafkaTemplate;
+    private final S3Client client;
+    private final S3Properties s3Properties;
 
     public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator, KafkaTemplate<String, UserEmailVerificationDto> kafkaTemplate) {
         this.userRepository = userRepository;
