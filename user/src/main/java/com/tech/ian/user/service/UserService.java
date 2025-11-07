@@ -1,5 +1,6 @@
 package com.tech.ian.user.service;
 
+import com.tech.ian.user.config.aws.S3Properties;
 import com.tech.ian.user.config.dto.UserEmailVerificationDto;
 import com.tech.ian.user.exception.exceptions.UserAlreadyEnabledException;
 import com.tech.ian.user.exception.exceptions.UserAlreadyExistException;
@@ -15,7 +16,12 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
+import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,7 +37,7 @@ public class UserService {
     private final S3Client client;
     private final S3Properties s3Properties;
 
-    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator, KafkaTemplate<String, UserEmailVerificationDto> kafkaTemplate) {
+    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator, KafkaTemplate<String, UserEmailVerificationDto> kafkaTemplate, S3Client client, S3Properties s3Properties) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.passwordEncoder = passwordEncoder;
@@ -89,4 +95,33 @@ public class UserService {
         UserEmailVerificationDto emailDto = new UserEmailVerificationDto(user.getEmail(), user.getVerificationCode());
         kafkaTemplate.send("email-verification-topic", emailDto);
     }
+
+    private String uploadFile(MultipartFile file) {
+        try {
+            uploadFileToS3(file);
+        } catch (IOException exception) {
+            throw new RuntimeException("Failed to upload file to S3", exception);
+        }
+        return generateS3Url(file.getName());
+    }
+
+    private void uploadFileToS3(MultipartFile file) throws IOException {
+        String name = file.getName();
+        byte[] data = file.getBytes();
+        String contentType = file.getContentType();
+        PutObjectRequest ts = PutObjectRequest.builder()
+                .bucket(s3Properties.getBucketName())
+                .key(name)
+                .contentType(contentType)
+                .build();
+        client.putObject(ts, RequestBody.fromBytes(data));
+    }
+
+    private String generateS3Url(String key) {
+        return String.format("https://%s.s3.%s.amazonaws.com/%s",
+                s3Properties.getBucketName(),
+                s3Properties.getRegion(),
+                key);
+    }
+
 }
