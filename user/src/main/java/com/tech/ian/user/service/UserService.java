@@ -41,13 +41,8 @@ public class UserService {
         if (getUserEntity(req.email()).isPresent()) {
             throw new UserAlreadyExistException();
         }
-        UserEntity user = mapper.mapRegistryToEntity(req);
-        user.setUuid(UUID.randomUUID());
-        user.setEmail(req.email().toLowerCase());
-        user.setPassword(passwordEncoder.encode(req.password()));
-        user.setRole(Role.USER);
-        user.setEnabled(false);
-        user.setVerificationCode(codeGenerator.generate());
+        String imageUrl = uploadFile(req.profilePicture());
+        UserEntity user = buildUserEntity(req, imageUrl);
         userRepository.save(user);
 
         sendEvent(user);
