@@ -37,6 +37,8 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
         this.codeGenerator = codeGenerator;
         this.kafkaTemplate = kafkaTemplate;
+        this.client = client;
+        this.s3Properties = s3Properties;
     }
 
     public UserRegisterResponseDto create(UserRegisterRequestDto req) {
