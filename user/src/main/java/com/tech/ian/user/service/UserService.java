@@ -51,7 +51,10 @@ public class UserService {
         if (getUserEntity(req.email()).isPresent()) {
             throw new UserAlreadyExistException();
         }
-        String imageUrl = uploadFile(req.profilePicture());
+        String imageUrl = "";
+        if(req.profilePicture() != null) {
+            imageUrl = uploadFile(req.profilePicture());
+        }
         UserEntity user = buildUserEntity(req, imageUrl);
         userRepository.save(user);
 
