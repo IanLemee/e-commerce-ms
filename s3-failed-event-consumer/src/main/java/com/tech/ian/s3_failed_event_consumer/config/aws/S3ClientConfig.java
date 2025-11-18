@@ -1,4 +1,4 @@
-package com.tech.ian.user.config.aws;
+package com.tech.ian.s3_failed_event_consumer.config.aws;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

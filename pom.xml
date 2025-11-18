@@ -22,6 +22,8 @@
     </properties>
     <modules>
         <module>user</module>
+        <module>notification</module>
+        <module>s3-failed-event-consumer</module>
     </modules>
 
     <dependencies>
