@@ -1,15 +1,13 @@
-package com.tech.ian.user;
+package com.tech.ian.s3_failed_event_consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAsync
-public class UserApplication {
+public class S3FailedEventConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserApplication.class, args);
+		SpringApplication.run(S3FailedEventConsumerApplication.class, args);
 	}
 
 }

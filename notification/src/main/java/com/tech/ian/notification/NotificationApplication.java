@@ -1,15 +1,13 @@
-package com.tech.ian.user;
+package com.tech.ian.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAsync
-public class UserApplication {
+public class NotificationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserApplication.class, args);
+		SpringApplication.run(NotificationApplication.class, args);
 	}
 
 }
