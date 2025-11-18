@@ -30,8 +30,8 @@ public class UserRegisterController {
     }
 
     @GetMapping("verify")
-    public ResponseEntity<Object> activeAccount(@RequestParam String email, @RequestParam int code) {
+    public ResponseEntity<Void> activeAccount(@RequestParam String email, @RequestParam int code) {
         userService.activeAccount(email, code);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
