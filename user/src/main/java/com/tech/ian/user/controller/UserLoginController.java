@@ -32,6 +32,6 @@ public class UserLoginController {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.email(), req.password())).isAuthenticated();
         UserEntity user = userService.getUserEntity(req.email()).get();
         String token = jwtUtils.generateToken(user);
-        return new ResponseEntity<>(token, HttpStatus.OK);
+        return new ResponseEntity<>(token, HttpStatus.ACCEPTED);
     }
 }
