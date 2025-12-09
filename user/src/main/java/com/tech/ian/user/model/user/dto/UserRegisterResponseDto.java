@@ -1,6 +1,6 @@
-package com.tech.ian.user.model.dto;
+package com.tech.ian.user.model.user.dto;
 
-import com.tech.ian.user.model.Role;
+import com.tech.ian.user.model.user.Role;
 
 import java.util.UUID;
 

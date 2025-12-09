@@ -4,11 +4,12 @@ import com.tech.ian.user.config.dto.S3UploadSuccessEvent;
 import com.tech.ian.user.config.dto.UserEmailVerificationDto;
 import com.tech.ian.user.exception.exceptions.UserAlreadyEnabledException;
 import com.tech.ian.user.exception.exceptions.UserAlreadyExistException;
+import com.tech.ian.user.exception.exceptions.UserNotFoundException;
 import com.tech.ian.user.exception.exceptions.WrongVerificationCodeException;
-import com.tech.ian.user.model.Role;
-import com.tech.ian.user.model.UserEntity;
-import com.tech.ian.user.model.dto.UserRegisterRequestDto;
-import com.tech.ian.user.model.dto.UserRegisterResponseDto;
+import com.tech.ian.user.model.user.Role;
+import com.tech.ian.user.model.user.UserEntity;
+import com.tech.ian.user.model.user.dto.UserRegisterRequestDto;
+import com.tech.ian.user.model.user.dto.UserRegisterResponseDto;
 import com.tech.ian.user.repo.UserRepository;
 import com.tech.ian.user.utils.Mapper;
 import com.tech.ian.user.utils.VerificationCodeGenerator;
@@ -18,6 +19,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -34,17 +36,19 @@ public class UserService {
     private final S3UploadService s3UploadService;
     @Qualifier("kafkaTemplateVerification")
     private final KafkaTemplate<String, UserEmailVerificationDto> templateVerification;
+    private final VerificationFailureService verificationFailureService;
 
-    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator, S3UploadService s3UploadService, KafkaTemplate<String, UserEmailVerificationDto> templateVerification) {
+    public UserService(UserRepository userRepository, Mapper mapper, PasswordEncoder passwordEncoder, VerificationCodeGenerator codeGenerator, S3UploadService s3UploadService, KafkaTemplate<String, UserEmailVerificationDto> templateVerification, VerificationFailureService verificationFailureService) {
         this.userRepository = userRepository;
         this.mapper = mapper;
         this.passwordEncoder = passwordEncoder;
         this.codeGenerator = codeGenerator;
         this.s3UploadService = s3UploadService;
         this.templateVerification = templateVerification;
+        this.verificationFailureService = verificationFailureService;
     }
 
-    public UserRegisterResponseDto create(UserRegisterRequestDto req) {
+    public UserRegisterResponseDto create(UserRegisterRequestDto req, MultipartFile file) {
         log.info("Starting user registration for email={}", req.email());
         if (getUserEntity(req.email()).isPresent()) {
             log.warn("Registration aborted - user with email={} already exists", req.email());
@@ -55,14 +59,16 @@ public class UserService {
         userRepository.save(user);
         log.info("User saved successfuly - id={}, email={}", user.getId(), user.getEmail());
 
-        String key = req.profilePicture().getOriginalFilename();
+        String key = file.getOriginalFilename();
         byte[] data;
+
         try {
-            data = req.profilePicture().getBytes();
+            data = file.getBytes();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Critical failure at reading bytes from image: {}", file.getOriginalFilename());
+            throw new RuntimeException("Error occurred when image was processing",e);
         }
-        String contentType = req.profilePicture().getContentType();
+        String contentType = file.getContentType();
         log.info("Uploading profile picture for email={}", user.getEmail());
         s3UploadService.uploadFileAsync(key, data, contentType, user.getEmail());
 
@@ -88,7 +94,7 @@ public class UserService {
                 .build();
     }
 
-    public void activeAccount(String email, int code) {
+    public void enableAccount(String email, int code) {
         getUserEntity(email).ifPresent(user ->
         {
             if (user.getVerificationCode() == code) {
@@ -116,24 +122,41 @@ public class UserService {
         UserEmailVerificationDto emailDto = new UserEmailVerificationDto(user.getEmail(), user.getVerificationCode());
         log.info("Sending verification email event for email={}", user.getEmail());
 
-        templateVerification.send("email-verification-topic", emailDto)
-                .whenComplete(((result, throwable) -> {
-                    if (throwable == null) {
-                        log.info("Kafka event sent successfully — topic={}, offset={}",
-                                result.getRecordMetadata().topic(),
-                                result.getRecordMetadata().offset());
-                    } else {
-                        log.error("Failed to send Kafka event for email={}: {}", user.getEmail(), throwable.getMessage());
-                    }
-                }));
+        try {
+            templateVerification.send("email-verification-topic", emailDto)
+                    .whenComplete(((result, throwable) -> {
+                        if (throwable != null) {
+                            log.error("Failed to send Kafka event for email={}: {}", user.getEmail(), throwable.getMessage());
+                            handleFailure(user);
+                        } else {
+                            log.info("Kafka event sent successfully — topic={}, offset={}",
+                                    result.getRecordMetadata().topic(),
+                                    result.getRecordMetadata().offset());
+                        }
+                    }));
+        } catch (Exception e) {
+            handleFailure(user);
+        }
+
+    }
+
+    private void handleFailure(UserEntity user) {
+        try {
+            verificationFailureService.create(user.getEmail(), user.getVerificationCode());
+        } catch (RuntimeException e) {
+            //TODO
+        }
     }
 
     @KafkaListener(topics = "s3-success-topic", groupId = "user-service-group")
     public void handleUploadSuccess(S3UploadSuccessEvent event) {
         log.info("Saving photo url for email={}", event.email());
-        getUserEntity(event.email()).ifPresent(user -> {
+        getUserEntity(event.email()).ifPresentOrElse(user -> {
             user.setProfilePicture(event.url());
             userRepository.save(user);
+        }, () -> {
+            log.warn("User not found for this email={}", event.email());
+            throw new UserNotFoundException(event.email());
         });
     }
 }

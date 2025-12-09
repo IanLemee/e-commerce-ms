@@ -1,4 +1,4 @@
-package com.tech.ian.user.model.dto;
+package com.tech.ian.user.model.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,6 +1,6 @@
 package com.tech.ian.user.repo;
 
-import com.tech.ian.user.model.UserEntity;
+import com.tech.ian.user.model.user.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
