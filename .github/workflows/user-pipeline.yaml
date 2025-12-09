@@ -3,6 +3,9 @@ name: CI/CD Pipeline User-MS
 on:
   push:
     branches: [ "develop" ]
+    paths:
+      - 'user/**'
+      - 'pom.xml'
   pull_request:
       branches: [ "develop" ]
       paths:

@@ -26,7 +26,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.io.IOException;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -77,7 +76,8 @@ class UserLoginControllerTest {
         }
 
         @Test
-        void test() throws Exception {
+        @DisplayName("POST '/login' Should return status 403 when wrong email or password")
+        void ShouldReturnStatus403WhenWrongEmailOrPassword() throws Exception {
             when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenThrow(new BadCredentialsException("Bad credentials"));
             var reqJson = loader.load("userLogin/post-user-login-req-403.json");
 
