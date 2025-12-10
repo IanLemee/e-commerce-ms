@@ -26,9 +26,9 @@ public class UserRegisterController {
         return new ResponseEntity<>(resp, HttpStatus.CREATED);
     }
 
-    @GetMapping("verify")
+    @PutMapping("verify")
     public ResponseEntity<Void> activeAccount(@RequestParam String email, @RequestParam int code) {
-        userService.activeAccount(email, code);
+        userService.enableAccount(email, code);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
