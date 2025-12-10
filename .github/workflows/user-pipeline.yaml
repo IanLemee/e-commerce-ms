@@ -14,12 +14,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        include:
-          - java-version: '17'
-          - distribution: 'temurin'
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
