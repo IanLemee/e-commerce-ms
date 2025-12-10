@@ -1,7 +1,8 @@
 package com.tech.ian.user.controller;
 
-import com.tech.ian.user.model.UserEntity;
-import com.tech.ian.user.model.dto.UserLoginRequestDto;
+import com.tech.ian.user.exception.exceptions.UserNotFoundException;
+import com.tech.ian.user.model.user.UserEntity;
+import com.tech.ian.user.model.user.dto.UserLoginRequestDto;
 import com.tech.ian.user.service.UserService;
 import com.tech.ian.user.utils.JwtUtils;
 import jakarta.validation.Valid;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("/login")
 public class UserLoginController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
@@ -30,7 +31,7 @@ public class UserLoginController {
     @PostMapping
     public ResponseEntity<String> login(@RequestBody @Valid UserLoginRequestDto req) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.email(), req.password())).isAuthenticated();
-        UserEntity user = userService.getUserEntity(req.email()).get();
+        UserEntity user = userService.getUserEntity(req.email()).orElseThrow(() -> new UserNotFoundException("User not found after auth"));
         String token = jwtUtils.generateToken(user);
         return new ResponseEntity<>(token, HttpStatus.ACCEPTED);
     }

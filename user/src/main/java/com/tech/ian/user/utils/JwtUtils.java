@@ -1,13 +1,14 @@
 package com.tech.ian.user.utils;
 
-import com.tech.ian.user.model.UserEntity;
+import com.tech.ian.user.model.user.UserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.extern.log4j.Log4j2;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,14 +23,27 @@ import java.util.Date;
 
 @Service
 public class JwtUtils {
+    private final Key privateKey;
 
-    private final Path path = Paths.get("user/privatekey.pem");
-    private final String key = Files.readString(path)
-            .replace("-----BEGIN PRIVATE KEY-----", "")
-            .replace(System.lineSeparator(), "")
-            .replace("-----END PRIVATE KEY-----", "");
+    public JwtUtils() {
+        try {
+            ClassPathResource resource = new ClassPathResource("keys/privatekey.pem");
 
-    public JwtUtils() throws IOException {
+            String keyString = new String(resource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
+
+            String privateKeyPEM = keyString
+                    .replace("-----BEGIN PRIVATE KEY-----", "")
+                    .replace("-----END PRIVATE KEY-----", "")
+                    .replaceAll("\\s+", "");
+
+            byte[] encoded = Base64.getDecoder().decode(privateKeyPEM);
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);
+            this.privateKey = keyFactory.generatePrivate(keySpec);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erro fatal: Não foi possível carregar a chave privada (privatekey.pem)", e);
+        }
     }
 
     public String generateToken(UserEntity user) {
@@ -39,7 +53,7 @@ public class JwtUtils {
                 .setIssuedAt(Date.from(Instant.now()))
                 .setExpiration(Date.from(Instant.now().plusSeconds(60*60)))
                 .claim("uuid", user.getUuid())
-                .signWith(getKey(), SignatureAlgorithm.RS256)
+                .signWith(privateKey, SignatureAlgorithm.RS256)
                 .compact();
     }
 
@@ -59,20 +73,9 @@ public class JwtUtils {
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
-                .setSigningKey(getKey())
+                .setSigningKey(privateKey)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-    }
-
-    private Key getKey() {
-        byte[] decode = Base64.getDecoder().decode(key);
-        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(decode);
-        try {
-            KeyFactory k = KeyFactory.getInstance("RSA");
-            return k.generatePrivate(pkcs8EncodedKeySpec);
-        } catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

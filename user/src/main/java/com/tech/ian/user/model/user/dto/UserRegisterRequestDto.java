@@ -1,4 +1,4 @@
-package com.tech.ian.user.model.dto;
+package com.tech.ian.user.model.user.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,10 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 public record UserRegisterRequestDto(
         @NotBlank @Size(min = 2, max = 64)
         String name,
-        @NotNull @Email
+        @NotBlank @Email
         String email,
         @NotBlank @Size(min = 11, max = 30)
-        String password,
-        MultipartFile profilePicture
+        String password
 ) {
 }
