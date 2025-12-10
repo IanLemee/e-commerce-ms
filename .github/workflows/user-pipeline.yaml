@@ -19,11 +19,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up jdk
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: ${{matrix.java-version}}
-          distribution: ${{matrix.distribution}}
+          java-version: '17'
+          distribution: 'temurin'
           cache: maven
 
 
