@@ -40,7 +40,7 @@ public class GlobalHandlerException {
         Instant timestamp = Instant.now();
         HttpStatus status = HttpStatus.CONFLICT;
         int code = status.value();
-        String path = ((ServletWebRequest) request).getRequest().getRequestURI();
+        String path = request.getContextPath();
 
         ErrorResponse errorResponse = new ErrorResponse(
                 timestamp,

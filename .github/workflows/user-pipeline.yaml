@@ -6,11 +6,6 @@ on:
     paths:
       - 'user/**'
       - 'pom.xml'
-  pull_request:
-      branches: [ "develop" ]
-      paths:
-        - 'user/**'
-        - 'pom.xml'
 
 jobs:
   build:
@@ -26,6 +21,77 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-
       - name: Build with maven
         run: mvn clean package -pl user -am -DskipTests=false
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: user-service-jar
+          path: user/target/*.jar
+
+      - name: Upload Compose
+        uses: actions/upload-artifact@v4
+        with:
+          name: user-service-compose
+          path: user/docker-compose.yml
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: user-service-jar
+          path: deploy-artifacts
+
+      - name: download compose
+        uses: actions/download-artifact@v4
+        with:
+          name: user-service-compose
+          path: deploy-compose
+
+      - name: Create directory on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: mkdir -p /home/ec2-user/app-user
+
+      - name: Copy jar to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "deploy-artifacts/*.jar, deploy-compose/docker-compose.yml"
+
+          target: "/home/ec2-user/app-user"
+          strip_components: 1
+
+      - name: Start App
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/app-user
+            
+            docker compose down || true
+            
+            docker compose up -d
+            echo "Aguardando o banco subir"
+            sleep 10
+            
+            sudo pkill -f 'java -jar' || true
+            
+            nohup java -jar *.jar \
+            --spring.datasource.url=jdbc:postgresql://localhost:5432/seubanco \
+            --spring.datasource.username=seuuser \
+            --spring.datasource.password=suasenha \
+            > app.log 2>&1 &
+
+            echo "Deploy finalizado com sucesso!"
