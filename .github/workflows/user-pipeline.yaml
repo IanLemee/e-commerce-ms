@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: user-service-compose
-          path: user/docker-compose.yml
+          path: user/docker-compose.yaml
 
   deploy:
     needs: build
@@ -89,9 +89,9 @@ jobs:
             sudo pkill -f 'java -jar' || true
             
             nohup java -jar *.jar \
-            --spring.datasource.url=jdbc:postgresql://localhost:5432/seubanco \
-            --spring.datasource.username=seuuser \
-            --spring.datasource.password=suasenha \
+            --spring.datasource.url=jdbc:postgresql://localhost:5431/postgres \
+            --spring.datasource.username=postgres \
+            --spring.datasource.password=1234 \
             > app.log 2>&1 &
 
             echo "Deploy finalizado com sucesso!"
