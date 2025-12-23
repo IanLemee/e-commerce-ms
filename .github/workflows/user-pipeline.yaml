@@ -6,6 +6,7 @@ on:
     paths:
       - 'user/**'
       - 'pom.xml'
+      - '.github/workflows/user-pipeline.yaml'
 
 jobs:
   build:
