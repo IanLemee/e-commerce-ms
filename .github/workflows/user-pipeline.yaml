@@ -105,10 +105,13 @@ jobs:
             
             sudo pkill -f 'java -jar' || true
             
-            nohup java -jar *.jar \
+            nohup java -Xms128m -Xmx400m -jar *.jar \
             --spring.datasource.url=jdbc:postgresql://localhost:5431/postgres \
             --spring.datasource.username=postgres \
             --spring.datasource.password=1234 \
-            > app.log 2>&1 &
+            > app.log 2>&1 < /dev/null &
 
+            echo "Aplicação iniciada com PID $!"
+            
             echo "Deploy finalizado com sucesso!"
+            exit 0
