@@ -81,9 +81,9 @@ jobs:
           script: |
             cd /home/ec2-user/app-user
             
-            docker compose down || true
+            docker-compose down || true
             
-            docker compose up -d
+            docker-compose up -d
             echo "Aguardando o banco subir"
             sleep 10
             
