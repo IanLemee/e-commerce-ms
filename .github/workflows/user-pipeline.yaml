@@ -67,7 +67,9 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "deploy-artifacts/*.jar, deploy-compose/docker-compose.yml"
+          source: |
+            deploy-artifacts/*.jar
+            deploy-compose/docker-compose.yaml
 
           target: "/home/ec2-user/app-user"
           strip_components: 1
@@ -80,6 +82,9 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ec2-user/app-user
+            
+            echo "--- Listando arquivos no diretorio ---"
+            ls -la
             
             docker-compose down || true
             
