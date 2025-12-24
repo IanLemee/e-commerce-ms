@@ -94,24 +94,18 @@ jobs:
           script: |
             cd /home/ec2-user/app-user
             
-            echo "--- Listando arquivos no diretorio ---"
-            ls -la
-            
+            sudo rm -f app.log
             docker-compose down || true
-            
+            sudo pkill -f 'java -jar' || true
             docker-compose up -d
-            echo "Aguardando o banco subir"
+            echo "Banco subindo... aguardando 10s"
             sleep 10
             
-            sudo pkill -f 'java -jar' || true
+            echo "#!/bin/bash" > startup.sh
+            echo "nohup java -Xms128m -Xmx400m -jar *.jar --spring.datasource.url=jdbc:postgresql://localhost:5431/postgres --spring.datasource.username=postgres --spring.datasource.password=1234 > app.log 2>&1 &" >> startup.sh
             
-            nohup java -Xms128m -Xmx400m -jar *.jar \
-            --spring.datasource.url=jdbc:postgresql://localhost:5431/postgres \
-            --spring.datasource.username=postgres \
-            --spring.datasource.password=1234 \
-            > app.log 2>&1 < /dev/null &
-
-            echo "Aplicação iniciada com PID $!"
+            chmod +x startup.sh
+            ./startup.sh
             
             echo "Deploy finalizado com sucesso!"
             exit 0
