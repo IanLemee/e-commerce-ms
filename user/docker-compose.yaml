@@ -1,11 +1,27 @@
 services:
+  user-ms:
+    image: ianlemee/user-service:v1.0
+    build:
+      context: ../
+      dockerfile: user/Dockerfile
+    depends_on:
+      - postgres
+    networks:
+      - user_ms_network
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
   postgres:
     container_name: user-db
     image: postgres:16
     restart: always
     ports:
-      - 5432:5432
+      - 5431:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=postgres
+    networks:
+      - user_ms_network
+
+networks:
+  user_ms_network:
