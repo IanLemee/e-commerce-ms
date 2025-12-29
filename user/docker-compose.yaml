@@ -10,12 +10,14 @@ services:
       - user_ms_network
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+    ports:
+      - "8080:8080"
   postgres:
     container_name: user-db
     image: postgres:16
     restart: always
     ports:
-      - 5431:5432
+      - "5431:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
