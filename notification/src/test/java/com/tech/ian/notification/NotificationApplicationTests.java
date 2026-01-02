@@ -5,7 +5,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class NotificationApplicationTests {
-
+	// TODO
+	//  CREATE TESTS
 	@Test
 	void contextLoads() {
 	}

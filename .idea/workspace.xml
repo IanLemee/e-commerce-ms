@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/notification-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/notification-pipeline.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/s3-failed-event-consumer.yaml.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/s3-failed-event-consumer.yaml.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/order/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s3-failed-event-consumer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/s3-failed-event-consumer/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/stock/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

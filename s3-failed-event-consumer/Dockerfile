@@ -8,7 +8,7 @@ RUN mvn -N install
 
 COPY s3-failed-event-consumer/src s3-failed-event-consumer/src
 
-RUN mvn -f /s3-failed-event-consumer/pom.xml clean package -DskipTests
+RUN mvn -f s3-failed-event-consumer/pom.xml clean package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app

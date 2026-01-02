@@ -10,7 +10,7 @@ COPY stock/pom.xml stock/
 
 RUN mvn -N install
 
-RUN mvn -f commons/pom.xml install
+RUN mvn -f commons-core/pom.xml install
 
 COPY stock/src stock/src
 
