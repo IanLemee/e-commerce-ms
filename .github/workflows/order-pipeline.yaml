@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           java-version: '21'
-          distribution: 'temurim'
+          distribution: 'temurin'
           cache: maven
 
       - name: Build App
@@ -47,9 +47,9 @@ jobs:
       - name: Copy docker-compose to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST_STOCK }}
-          username: ${{ secrets.EC2_USER_STOCK }}
-          key: ${{ secrets.EC2_SSH_KEY_STOCK }}
+          host: ${{ secrets.EC2_HOST_ORDER }}
+          username: ${{ secrets.EC2_USER_ORDER }}
+          key: ${{ secrets.EC2_SSH_KEY_ORDER }}
           target: order/docker-compose.yaml
           source: "/tmp"
           strip_components: '1'
@@ -62,9 +62,9 @@ jobs:
       - name: Run app
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_HOST_STOCK }}
-          username: ${{ secrets.EC2_USER_STOCK }}
-          key: ${{ secrets.EC2_SSH_KEY_STOCK }}
+          host: ${{ secrets.EC2_HOST_ORDER }}
+          username: ${{ secrets.EC2_USER_ORDER }}
+          key: ${{ secrets.EC2_SSH_KEY_ORDER }}
           script: |
             mkdir -p /home/ec2-user/app-order
             

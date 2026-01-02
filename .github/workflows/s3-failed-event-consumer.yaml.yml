@@ -40,6 +40,16 @@ jobs:
           push: 'true'
           tags: ${{secrets.DOCKER_USERNAME}}/s3-failed-event-consumer-ms:latest
 
+      - name: Copy docker-compose to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST_S3 }}
+          username: ${{ secrets.EC2_USER_S3 }}
+          key: ${{ secrets.EC2_SSH_KEY_S3 }}
+          target: order/docker-compose.yaml
+          source: "/tmp"
+          strip_components: '1'
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -48,21 +58,15 @@ jobs:
       - name: Run App
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.EC2_HOST_S3_MS }}
+          username: ${{ secrets.EC2_USER_S3_MS }}
+          key: ${{ secrets.EC2_SSH_KEY_S3_MS }}
           script: |
             mkdir -p /home/ec2-user/app-s3-failed-event-consumer-ms
             cd /home/ec2-user/app-s3-failed-event-consumer-ms
             
-            IMAGE_NAME="s3-failed-event-consumer-ms:latest"
-            CONTAINER_NAME="app-s3-failed"
-            
-            echo "Starting app"
-            docker pull $IMAGE_NAME
-            docker stop $CONTAINER_NAME || true
-            docker rm $CONTAINER_NAME || true
-            docker -d run --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
+            docker-compose pull
+            docker-compose up -d --remove-orphans
             docker image prune -f
             echo "App started"
             exit 0

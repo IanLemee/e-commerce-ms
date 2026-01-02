@@ -16,7 +16,6 @@ import java.time.Instant;
 public class GlobalErrorHandler {
 
     //  TODO
-    //   fix pipelines that we dont use a docker compose
     //   create the payment processor service (check if its really necessary),
     //   create test for all services excluding user
     @ExceptionHandler(AuthenticationException.class)

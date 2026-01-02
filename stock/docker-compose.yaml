@@ -1,4 +1,13 @@
 services:
+  app:
+    container_name: stock-service
+    image: ianlemee/stock-ms:latest
+    build:
+      context: ../
+      dockerfile: stock/Dockerfile
+    ports:
+      - 8080:8080
+
   postgres:
     container_name: postgresql
     image: postgres:16

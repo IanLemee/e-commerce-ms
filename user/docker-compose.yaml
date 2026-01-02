@@ -1,6 +1,6 @@
 services:
   user-ms:
-    image: ianlemee/user-service:v1.0
+    image: ianlemee/user-service:latest
     build:
       context: ../
       dockerfile: user/Dockerfile

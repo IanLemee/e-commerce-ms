@@ -3,9 +3,14 @@ WORKDIR /app
 
 COPY pom.xml .
 
+COPY commons-core/pom.xml commons-core/
+COPY commons-core/src commons-core/src
+
 COPY stock/pom.xml stock/
 
 RUN mvn -N install
+
+RUN mvn -f commons/pom.xml install
 
 COPY stock/src stock/src
 

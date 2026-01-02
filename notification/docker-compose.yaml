@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: notification-service
+    image: ianlemee/notification-ms:latest
+    build:
+      context: ../
+      dockerfile: notification/Dockerfile
+    ports:
+      - "8080:8080"
