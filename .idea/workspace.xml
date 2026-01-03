@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/stock/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

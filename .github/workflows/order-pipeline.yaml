@@ -6,6 +6,7 @@ on:
     paths:
       - 'order/**'
       - 'pom.xml'
+      - '.github/workflows/order-pipeline.yaml'
 
 #  pull_request:
 #    branches: [ "develop" ]
