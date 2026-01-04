@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/order-pipeline.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,13 +15,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
         <option value="com.intellij.jpb.FlywayMigrationScript" />
         <option value="Record" />
         <option value="GitHub Workflow" />
         <option value="Dockerfile" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -118,6 +118,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.tech.ian.notification.service" />
       <recent name="com.tech.ian.order.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -304,14 +305,6 @@
         <item itemvalue="JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
