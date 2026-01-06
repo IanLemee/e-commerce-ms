@@ -23,14 +23,13 @@ jobs:
           cache: maven
 
       - name: Build with maven
-        run: mvn clean package -pl user -am -DskipTests=false
+        run: mvn clean package -pl user -am
 
       - name: Add JaCoCo code coverage report
         uses: madrapps/jacoco-report@v1.7.2
         with:
           paths: |
-            ${{ github.workspace }}/**/build/reports/jacoco/prodNormalDebugCoverage/prodNormalDebugCoverage.xml,
-            ${{ github.workspace }}/**/build/reports/jacoco/**/debugCoverage.xml
+            **/target/site/jacoco/jacoco.xml
           token: ${{ secrets.GIT_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
