@@ -32,7 +32,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OrderService {
 
-    @Value("${stripe.secret}")
+    @Value("${stripe.token}")
     private String stripeKey;
 
     private final OrderRepository repository;

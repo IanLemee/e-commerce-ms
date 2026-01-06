@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/user-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/user-pipeline.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/exception/GlobalErrorHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/exception/GlobalErrorHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRegisterControllerTestIT">
+  <component name="RunManager" selected="Spring Boot.OrderApplication">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -216,8 +203,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
       <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
       <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -263,8 +256,16 @@
       </method>
     </configuration>
     <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="TOKEN" value="sk_test_51PUZrlKYsRfvT8LupcmQD2t0yJ9CmbU0yzgBkon4Q89zRBTvg54UWzRfBEkCk3kUqPdiD5N4LaVE7fYdt9DSTZwd00o9HSAg0T" />
+      </envs>
       <module name="order" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.order.OrderApplication" />
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -296,6 +297,18 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.OrderServiceTest$getProduct.p" />
+      <item itemvalue="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" />
+      <item itemvalue="JUnit.UserRegisterControllerTestIT" />
+      <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" />
+      <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" />
+      <item itemvalue="Spring Boot.NotificationApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Spring Boot.S3FailedEventConsumerApplication" />
+      <item itemvalue="Spring Boot.StockApplication (1)" />
+      <item itemvalue="Spring Boot.UserApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserRegisterControllerTestIT" />
@@ -330,7 +343,7 @@
       <workItem from="1767011468844" duration="19538000" />
       <workItem from="1767183602308" duration="2017000" />
       <workItem from="1767612955484" duration="6864000" />
-      <workItem from="1767703113754" duration="7155000" />
+      <workItem from="1767703113754" duration="7733000" />
     </task>
     <servers />
   </component>
