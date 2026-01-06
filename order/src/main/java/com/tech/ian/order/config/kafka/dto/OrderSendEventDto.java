@@ -1,9 +1,8 @@
 package com.tech.ian.order.config.kafka.dto;
 
 import com.tech.ian.order.model.PaymentStatus;
-import com.tech.ian.order.model.dto.CardDetailsDto;
 
 import java.math.BigDecimal;
 
-public record OrderSendEventDto(String orderId, String customerId, BigDecimal totalPrice, PaymentStatus paymentStatus, CardDetailsDto cardDetailsDto) {
+public record OrderSendEventDto(String orderId, String customerId, BigDecimal totalPrice, PaymentStatus paymentStatus, String cardToken) {
 }

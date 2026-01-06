@@ -34,8 +34,7 @@ public class BuildFactory {
     }
 
     public static OrderSendEventDto orderSendEventBuild() {
-        var cardDetails = new CardDetailsDto("1111222233334444", YearMonth.now(), "123", "Test");
-        return new OrderSendEventDto("1", "test@mail.com", BigDecimal.valueOf(1000.0), PaymentStatus.PENDING, cardDetails);
+        return new OrderSendEventDto("1", "test@mail.com", BigDecimal.valueOf(1000.0), PaymentStatus.PENDING, "token");
     }
 
     public static OrderRequestDto orderReqBuild() {

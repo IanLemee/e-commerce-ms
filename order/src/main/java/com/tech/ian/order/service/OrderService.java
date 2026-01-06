@@ -2,6 +2,8 @@ package com.tech.ian.order.service;
 
 import com.tech.ian.exception.ProductOutOfStockException;
 import com.tech.ian.order.client.StockApiClient;
+import com.tech.ian.order.client.StripeApiClient;
+import com.tech.ian.order.client.pojo.CardTokenResponse;
 import com.tech.ian.order.config.kafka.dto.OrderEventDto;
 import com.tech.ian.order.config.kafka.dto.OrderSendEventDto;
 import com.tech.ian.order.model.OrderEntity;
@@ -16,20 +18,27 @@ import com.tech.ian.order.utils.UserContext;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class OrderService {
 
+    @Value("${stripe.secret}")
+    private String stripeKey;
+
     private final OrderRepository repository;
 
     private final StockApiClient stockApiClient;
+    private final StripeApiClient stripeApiClient;
 
     private final KafkaTemplate<String, OrderSendEventDto> kafkaTemplate;
     private final OrderFactory orderFactory;
@@ -46,8 +55,18 @@ public class OrderService {
         var buildOrder = orderFactory.buildOrder(req, userId, productResponseDto.price(), totalPrice);
         repository.save(buildOrder);
 
+        // TODO
+        //  Refactor this method
+
         CardDetailsDto cardDetails = req.cardDetails();
-        sendEvent(orderFactory.buildOrderEvent(cardDetails, buildOrder));
+        Map<String, String> map = new HashMap<>();
+        map.put("card[Number]", cardDetails.cardNumber());
+        map.put("card[exp_month]", String.valueOf(cardDetails.expDate().getMonthValue()));
+        map.put("card[exp_year]", String.valueOf(cardDetails.expDate().getYear()));
+        map.put("card[cvc]", cardDetails.securityCode());
+        CardTokenResponse token = stripeApiClient.token("Bearer "+stripeKey,map);
+
+        sendEvent(orderFactory.buildOrderEvent(buildOrder, token.id()));
 
         return new OrderResponseDto(buildOrder.getItem().getProduct(), buildOrder.getItem().getQuantity(), buildOrder.getItem().getPrice(), buildOrder.getTotalPrice(), buildOrder.getPaymentStatus());
     }

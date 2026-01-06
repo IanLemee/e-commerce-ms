@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 @Component
 public class OrderFactory {
 
-    public OrderSendEventDto buildOrderEvent(CardDetailsDto cardDetailsDto, OrderEntity orderEntity) {
-        return new OrderSendEventDto(orderEntity.getId(), orderEntity.getCustomerId(), orderEntity.getTotalPrice(), orderEntity.getPaymentStatus(), cardDetailsDto);
+    public OrderSendEventDto buildOrderEvent(OrderEntity orderEntity, String token) {
+        return new OrderSendEventDto(orderEntity.getId(), orderEntity.getCustomerId(), orderEntity.getTotalPrice(), orderEntity.getPaymentStatus(), token);
     }
 
     public OrderEntity buildOrder(OrderRequestDto req, String userId, BigDecimal price, BigDecimal totalPrice) {

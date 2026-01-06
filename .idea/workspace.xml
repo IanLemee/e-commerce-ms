@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="" />
+    <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/user-pipeline.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/user-pipeline.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/exception/GlobalErrorHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/exception/GlobalErrorHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,14 +29,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
         <option value="com.intellij.jpb.FlywayMigrationScript" />
-        <option value="Record" />
         <option value="GitHub Workflow" />
         <option value="Dockerfile" />
         <option value="GitHub Action" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -48,7 +64,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -58,51 +74,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Docker.order: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest$create.shouldThrowProductOutOfStockException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest$getProduct.p.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.OrderApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.StockApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/stock/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/order/src/main/java/com/tech/ian/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.order: Compose Deployment.executor": "Run",
+    "JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful.executor": "Run",
+    "JUnit.OrderServiceTest$create.shouldThrowProductOutOfStockException.executor": "Run",
+    "JUnit.OrderServiceTest$getProduct.p.executor": "Run",
+    "JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException.executor": "Run",
+    "JUnit.UserRegisterControllerTestIT.executor": "Run",
+    "JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful.executor": "Run",
+    "JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.OrderApplication.executor": "Run",
+    "Spring Boot.StockApplication.executor": "Run",
+    "Spring Boot.UserApplication (1).executor": "Run",
+    "Spring Boot.UserApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/stock/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/order/src/main/java/com/tech/ian/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.tech.ian.order.model.dto" />
@@ -117,6 +136,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.tech.ian.user.controller" />
       <recent name="com.tech.ian.order.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -133,7 +153,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException">
+  <component name="RunManager" selected="JUnit.UserRegisterControllerTestIT">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -151,38 +171,6 @@
       <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
       <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
       <option name="METHOD_NAME" value="shouldCreateAnOrderWhenSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
-      <option name="METHOD_NAME" value="shouldCreateAnOrderWhenSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest$create.shouldThrowProductOutOfStockException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
-      <option name="METHOD_NAME" value="shouldThrowProductOutOfStockException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -220,6 +208,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserRegisterControllerTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
+      <option name="METHOD_NAME" value="shouldCreateUserWhenSuccessful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
+      <option name="METHOD_NAME" value="shouldVerifyUserWhenSuccessful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NotificationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="notification" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.notification.NotificationApplication" />
@@ -227,16 +262,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="order" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.order.OrderApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -248,43 +276,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StockApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+    <configuration name="StockApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="stock" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.user.StockApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.stock.StockApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="user" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.user.UserApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="user" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.user.UserApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -297,11 +298,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" />
+        <item itemvalue="JUnit.UserRegisterControllerTestIT" />
+        <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" />
+        <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" />
         <item itemvalue="JUnit.OrderServiceTest$getProduct.p" />
-        <item itemvalue="JUnit.OrderServiceTest$create.shouldThrowProductOutOfStockException" />
-        <item itemvalue="JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" />
-        <item itemvalue="Spring Boot.UserApplication (1)" />
+        <item itemvalue="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +329,8 @@
       <workItem from="1766953920319" duration="5658000" />
       <workItem from="1767011468844" duration="19538000" />
       <workItem from="1767183602308" duration="2017000" />
-      <workItem from="1767612955484" duration="1906000" />
+      <workItem from="1767612955484" duration="6864000" />
+      <workItem from="1767703113754" duration="7155000" />
     </task>
     <servers />
   </component>
