@@ -30,7 +30,7 @@ public class UserLoginController {
 
     @PostMapping
     public ResponseEntity<String> login(@RequestBody @Valid UserLoginRequestDto req) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.email(), req.password())).isAuthenticated();
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.email().toLowerCase(), req.password())).isAuthenticated();
         UserEntity user = userService.getUserEntity(req.email()).orElseThrow(() -> new UserNotFoundException("User not found after auth"));
         String token = jwtUtils.generateToken(user);
         return new ResponseEntity<>(token, HttpStatus.ACCEPTED);

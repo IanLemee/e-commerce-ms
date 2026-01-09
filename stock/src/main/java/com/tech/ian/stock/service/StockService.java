@@ -14,6 +14,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class StockService {
@@ -24,7 +26,7 @@ public class StockService {
     @Transactional
     @CachePut(value = "StockCache", key = "#result.product()")
     public StockCreateDto create(StockCreateDto request) {
-        StockEntity stockToSave = stockRepository.findByProduct(request.product())
+        StockEntity stockToSave = getProduct(request.product())
                 .map(existing -> {
                     existing.setQuantity(existing.getQuantity() + request.quantity());
                     return existing;
@@ -39,10 +41,10 @@ public class StockService {
     @Transactional
     @CacheEvict(value = "StockCache", key = "#result.product()")
     public StockResponseDto buyProduct(StockRequestDto request) {
-        StockEntity stock = stockRepository.findByProduct(request.product()).orElseThrow();
+        StockEntity stock = getProduct(request.product()).orElseThrow(ProductOutOfStockException::new);
 
         if (request.quantity() > stock.getQuantity()) {
-                        throw new ProductOutOfStockException("There's no sufficent items");
+            throw new ProductOutOfStockException("Not enough items");
         }
 
         stock.setQuantity(stock.getQuantity() - request.quantity());
@@ -54,7 +56,11 @@ public class StockService {
     @Transactional
     @Cacheable(value = "StockCache", key = "#request")
     public StockResponseDto getStockInfo(StockRequestDto request) {
-        StockEntity stockEntity = stockRepository.findByProduct(request.product()).orElseThrow(RuntimeException::new);
+        StockEntity stockEntity = getProduct(request.product()).orElseThrow(ProductOutOfStockException::new);
         return new StockResponseDto(stockEntity.getProduct(), stockEntity.getPrice());
+    }
+
+    public Optional<StockEntity> getProduct(String request) {
+        return stockRepository.findByProduct(request);
     }
 }

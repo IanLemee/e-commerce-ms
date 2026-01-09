@@ -15,7 +15,7 @@ public class GlobalErrorHandler {
 
     @ExceptionHandler(ProductOutOfStockException.class)
     public ResponseEntity<Object> productOutOfStockException(ProductOutOfStockException ex, HttpServletRequest request) {
-        HttpStatus noContent = HttpStatus.NO_CONTENT;
+        HttpStatus noContent = HttpStatus.NOT_FOUND;
         ErrorResponse errorResponse = new ErrorResponse(
                 Instant.now(),
                 noContent.value(),

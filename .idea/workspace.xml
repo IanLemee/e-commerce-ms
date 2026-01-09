@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="" />
+    <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons-core/src/main/java/com/tech/ian/exception/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons-core/src/main/java/com/tech/ian/exception/GlobalErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons-core/target/classes/com/tech/ian/exception/GlobalErrorHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons-core/target/classes/com/tech/ian/exception/GlobalErrorHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/controller/StockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/service/StockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserRegisterControllerTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserRegisterControllerTestIT.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,13 +24,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="com.intellij.jpb.FlywayMigrationScript" />
         <option value="GitHub Workflow" />
         <option value="Dockerfile" />
         <option value="GitHub Action" />
         <option value="Interface" />
         <option value="Record" />
+        <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -65,6 +76,27 @@
     "JUnit.OrderServiceTest$create.shouldThrowProductOutOfStockException.executor": "Run",
     "JUnit.OrderServiceTest$getProduct.p.executor": "Run",
     "JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException.executor": "Run",
+    "JUnit.StockControllerTest$butProduct.p.executor": "Run",
+    "JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound.executor": "Run",
+    "JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful.executor": "Run",
+    "JUnit.StockControllerTest.executor": "Coverage",
+    "JUnit.StockControllerTest.shouldReturnStatus202_WhenCreateProductSuccessful.executor": "Run",
+    "JUnit.StockServiceTest$buyProduct.shouldDecreaseTheProductQuantityWhenSuccessful.executor": "Debug",
+    "JUnit.StockServiceTest$buyProduct.shouldThrowProductOutOfStockExceptionNotEnoughItems.executor": "Run",
+    "JUnit.StockServiceTest$buyProduct.shouldThrowProductOutOfStockExceptionProductOutOfStockWhenTheresNoItemsFound.executor": "Run",
+    "JUnit.StockServiceTest$create.executor": "Coverage",
+    "JUnit.StockServiceTest$create.shouldCreateANewProductWhenSuccessful.executor": "Run",
+    "JUnit.StockServiceTest$create.shouldCreateAProductWhenSuccessful.executor": "Run",
+    "JUnit.StockServiceTest$create.shouldUpdateAProductWhenProductAlreadyExists.executor": "Run",
+    "JUnit.StockServiceTest$getStockInfo.p.executor": "Run",
+    "JUnit.StockServiceTest$getStockInfo.shouldReturnProduct_WhenSuccessful.executor": "Run",
+    "JUnit.StockServiceTest$getStockInfo.shouldThrowException_WhenProductDoesNotExist.executor": "Run",
+    "JUnit.StockServiceTest.executor": "Coverage",
+    "JUnit.UserLoginControllerTestIT and 1 more.executor": "Run",
+    "JUnit.UserLoginControllerTestIT.executor": "Run",
+    "JUnit.UserLoginControllerTestIT.shouldReturn202WhenLoginSuccessful.executor": "Run",
+    "JUnit.UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists.executor": "Run",
+    "JUnit.UserRegisterControllerTestIT and 1 more.executor": "Run",
     "JUnit.UserRegisterControllerTestIT.executor": "Run",
     "JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful.executor": "Run",
     "JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful.executor": "Run",
@@ -87,7 +119,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/stock/src/main/resources",
+    "last_opened_file_path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/user/src/test/resources/userLogin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -98,6 +130,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -114,16 +147,20 @@
       <recent name="com.tech.ian.order.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ianle\OneDrive\Documentos\Projetos\e-commerce-microservices\user\src\test\resources\userLogin" />
       <recent name="C:\Users\ianle\OneDrive\Documentos\Projetos\e-commerce-microservices\stock\src\main\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.tech.ian.stock.controller" />
+      <recent name="com.tech.ian.stock.service" />
       <recent name="com.tech.ian.user.controller" />
       <recent name="com.tech.ian.order.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tech.ian.stock.commons" />
       <recent name="com.tech.ian.exceptions" />
     </key>
   </component>
@@ -137,83 +174,77 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
+  <component name="RunManager" selected="JUnit.StockControllerTest">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order" />
+    <configuration name="StockControllerTest$butProduct.p" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.service.*" />
+          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
-      <option name="METHOD_NAME" value="shouldCreateAnOrderWhenSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderServiceTest$getProduct.p" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$getProduct" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$butProduct" />
       <option name="METHOD_NAME" value="p" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="order" />
+    <configuration name="StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.order.service.*" />
+          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$getProduct" />
-      <option name="METHOD_NAME" value="shouldThrowProductOutOfStockException" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$butProduct" />
+      <option name="METHOD_NAME" value="shouldReturnStatus404_WhenProductNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegisterControllerTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user" />
+    <configuration name="StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
+          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$create" />
+      <option name="METHOD_NAME" value="shouldReturnStatus202_WhenCreateProductSuccessful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StockControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user" />
       <extension name="coverage">
         <pattern>
@@ -221,25 +252,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
-      <option name="METHOD_NAME" value="shouldCreateUserWhenSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTestIT" />
-      <option name="METHOD_NAME" value="shouldVerifyUserWhenSuccessful" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTest$create" />
+      <option name="METHOD_NAME" value="shouldReturnStatus409WhenEmailAlreadyExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -295,11 +310,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.OrderServiceTest$getProduct.p" />
-      <item itemvalue="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" />
-      <item itemvalue="JUnit.UserRegisterControllerTestIT" />
-      <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" />
-      <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" />
+      <item itemvalue="JUnit.StockControllerTest" />
+      <item itemvalue="JUnit.StockControllerTest$butProduct.p" />
+      <item itemvalue="JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" />
+      <item itemvalue="JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" />
+      <item itemvalue="JUnit.UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" />
       <item itemvalue="Spring Boot.NotificationApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.S3FailedEventConsumerApplication" />
@@ -308,19 +323,19 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRegisterControllerTestIT" />
-        <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful" />
-        <item itemvalue="JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful" />
-        <item itemvalue="JUnit.OrderServiceTest$getProduct.p" />
-        <item itemvalue="JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException" />
+        <item itemvalue="JUnit.StockControllerTest" />
+        <item itemvalue="JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" />
+        <item itemvalue="JUnit.UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" />
+        <item itemvalue="JUnit.StockControllerTest$butProduct.p" />
+        <item itemvalue="JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
       </set>
     </attachedChunks>
   </component>
@@ -340,7 +355,11 @@
       <workItem from="1767011468844" duration="19538000" />
       <workItem from="1767183602308" duration="2017000" />
       <workItem from="1767612955484" duration="6864000" />
-      <workItem from="1767703113754" duration="9699000" />
+      <workItem from="1767703113754" duration="11083000" />
+      <workItem from="1767796822697" duration="8263000" />
+      <workItem from="1767874642165" duration="7084000" />
+      <workItem from="1767909805022" duration="2261000" />
+      <workItem from="1767957144890" duration="11384000" />
     </task>
     <servers />
   </component>
@@ -356,15 +375,6 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java</url>
-          <line>31</line>
-          <properties class="com.tech.ian.user.controller.UserLoginController" method="login">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java</url>
           <line>18</line>
           <properties class="com.tech.ian.order.controller.OrderController" method="createOrder">
@@ -373,8 +383,55 @@
           </properties>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java</url>
+          <line>31</line>
+          <properties class="com.tech.ian.user.controller.UserLoginController" method="login">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java</url>
+          <line>27</line>
+          <properties class="com.tech.ian.stock.service.StockService" method="create">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java</url>
+          <line>42</line>
+          <properties class="com.tech.ian.stock.service.StockService" method="buyProduct">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java</url>
+          <line>25</line>
+          <properties class="com.tech.ian.stock.controller.StockController" method="buyProduct">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockControllerTest.ic" NAME="StockControllerTest Coverage Results" MODIFIED="1767993238481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.tech.ian.stock.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockServiceTest_create.ic" NAME="StockServiceTest$create Coverage Results" MODIFIED="1767895345673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.tech.ian.stock.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockServiceTest.ic" NAME="StockServiceTest Coverage Results" MODIFIED="1767973392315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.tech.ian.stock.service.*</FILTER>
+    </SUITE>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
