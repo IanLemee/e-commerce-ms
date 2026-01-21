@@ -1,9 +1,7 @@
 services:
   user-ms:
     image: ianlemee/user-service:latest
-    build:
-      context: ../
-      dockerfile: user/Dockerfile
+    build: .
     depends_on:
       - postgres
     networks:
