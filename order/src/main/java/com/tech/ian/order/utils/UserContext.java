@@ -11,9 +11,9 @@ public class UserContext {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication == null || !authentication.isAuthenticated()) {
-            throw new IllegalStateException("Nenhum usuário autenticado no contexto");
+            throw new IllegalStateException("No user authenticated");
         }
 
-        return (String) authentication.getPrincipal();
+        return authentication.getName();
     }
 }

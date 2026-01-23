@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Document(collection = "order")
 @Data
@@ -23,5 +24,6 @@ public class OrderEntity {
     private String customerId;
     private BigDecimal totalPrice;
     private PaymentStatus paymentStatus;
+    private LocalDateTime timestamp;
     private OrderItem item;
 }

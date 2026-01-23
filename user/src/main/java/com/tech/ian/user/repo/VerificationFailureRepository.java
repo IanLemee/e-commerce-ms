@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface VerificationFailureRepository extends JpaRepository<VerificationFailureEntity, Long> {
 
-    @Query(value = "SELECT * FROM verfication_failure_tb ORDER BY failure_id ASC LIMIT 50", nativeQuery = true)
+    @Query(value = "SELECT * FROM verification_failure_tb ORDER BY failed_id ASC LIMIT 50", nativeQuery = true)
     List<VerificationFailureEntity> findAll();
 }

@@ -16,21 +16,22 @@ import java.util.Date;
 public class JwtUtils {
     private Key publicKey;
 
+
     public JwtUtils() {
         try{
             ClassPathResource classPathResource = new ClassPathResource("public-key.pem");
             String keyString = new String(classPathResource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
-            String privateKeyPEM = keyString
+            String publicKeyPem = keyString
                     .replace("-----BEGIN PUBLIC KEY-----", "")
                     .replace("-----END PUBLIC KEY-----", "")
                     .replaceAll("\\s+", "");
 
-            byte[] encoded = Base64.getDecoder().decode(privateKeyPEM);
+            byte[] encoded = Base64.getDecoder().decode(publicKeyPem);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
             this.publicKey = keyFactory.generatePublic(keySpec);
         } catch (Exception e) {
-
+            throw new RuntimeException(e.getMessage());
         }
     }
 

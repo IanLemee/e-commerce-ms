@@ -3,7 +3,7 @@ package com.tech.ian.stock.service;
 import com.tech.ian.exception.ProductOutOfStockException;
 import com.tech.ian.stock.model.StockEntity;
 import com.tech.ian.stock.model.dto.StockCreateDto;
-import com.tech.ian.stock.model.dto.StockRequestDto;
+import com.tech.ian.stock.config.kafka.dto.StockBuyProductDto;
 import com.tech.ian.stock.model.dto.StockResponseDto;
 import com.tech.ian.stock.repository.StockRepository;
 import com.tech.ian.stock.utils.StockFactory;
@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -23,7 +24,6 @@ public class StockService {
     private final StockRepository stockRepository;
     private final StockFactory stockFactory;
 
-    @Transactional
     @CachePut(value = "StockCache", key = "#result.product()")
     public StockCreateDto create(StockCreateDto request) {
         StockEntity stockToSave = getProduct(request.product())
@@ -40,22 +40,16 @@ public class StockService {
 
     @Transactional
     @CacheEvict(value = "StockCache", key = "#result.product()")
-    public StockResponseDto buyProduct(StockRequestDto request) {
-        StockEntity stock = getProduct(request.product()).orElseThrow(ProductOutOfStockException::new);
-
-        if (request.quantity() > stock.getQuantity()) {
-            throw new ProductOutOfStockException("Not enough items");
-        }
+    @KafkaListener(topics = "topic-stock-order", groupId = "stock-group")
+    public void buyProduct(StockBuyProductDto request) {
+        StockEntity stock = stockRepository.findByProductAndUpdate(request.product(), request.quantity()).orElseThrow(ProductOutOfStockException::new);
 
         stock.setQuantity(stock.getQuantity() - request.quantity());
         stockRepository.save(stock);
-
-        return stockFactory.buildStockResponse(stock.getProduct(), stock.getPrice());
     }
 
-    @Transactional
     @Cacheable(value = "StockCache", key = "#request")
-    public StockResponseDto getStockInfo(StockRequestDto request) {
+    public StockResponseDto getStockInfo(StockBuyProductDto request) {
         StockEntity stockEntity = getProduct(request.product()).orElseThrow(ProductOutOfStockException::new);
         return new StockResponseDto(stockEntity.getProduct(), stockEntity.getPrice());
     }

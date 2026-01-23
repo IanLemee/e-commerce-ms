@@ -79,11 +79,15 @@ class UserServiceTest {
             when(repository.findUserByEmail(factory.userRequestFactory().email())).thenReturn(Optional.of(factory.userEntityFactory()));
 
             assertThrows(UserAlreadyExistException.class, () -> service.create(factory.userRequestFactory(), factory.file()));
+            verify(repository, never()).save(any(UserEntity.class));
+            verify(s3UploadService, never()).uploadFileAsync(anyString(), any(), anyString(), anyString());
+            verify(template, never()).send(anyString(), any(UserEmailVerificationDto.class));
+            verify(mapper, never()).mapEntityToRegistry(any(UserEntity.class));
         }
     }
 
     @Nested
-    class activeAccount {
+    class enableAccount {
         @Test
         void shouldActiveAnAccountWhenSuccessful() {
             var user = factory.userEntityFactory();
@@ -100,14 +104,16 @@ class UserServiceTest {
             user.setVerificationCode(0);
             when(repository.findUserByEmail(user.getEmail())).thenReturn(Optional.of(user));
             assertThrows(UserAlreadyEnabledException.class, () -> service.enableAccount(user.getEmail(), verificationCode));
+            verify(repository, never()).save(any(UserEntity.class));
         }
 
         @Test
-        void shouldThrowWrongVerificationCodeExceptionWhenVerificationCodeIsDifferenteFromCodeAccount() {
+        void shouldThrowWrongVerificationCodeExceptionWhenVerificationCodeIsDifferentFromCodeAccount() {
             UserEntity user = factory.userEntityFactory();
             int code = 332813;
             when(repository.findUserByEmail(user.getEmail())).thenReturn(Optional.of(user));
             assertThrows(WrongVerificationCodeException.class, () -> service.enableAccount(user.getEmail(), code));
+            verify(repository, never()).save(any(UserEntity.class));
         }
     }
 

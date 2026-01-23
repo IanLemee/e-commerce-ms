@@ -1,6 +1,7 @@
 package com.tech.ian.order.config.kafka;
 
-import com.tech.ian.order.config.kafka.dto.OrderSendEventDto;
+import com.tech.ian.order.config.kafka.dto.OrderBuyProductEventDto;
+import com.tech.ian.order.config.kafka.dto.OrderNotificationEventDto;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -28,12 +29,22 @@ public class KafkaProducer {
     }
 
     @Bean
-    public ProducerFactory<String, OrderSendEventDto> factory() {
+    public ProducerFactory<String, OrderNotificationEventDto> factoryNotification() {
         return new DefaultKafkaProducerFactory<>(getBaseKafkaConfig());
     }
 
     @Bean
-    public KafkaTemplate<String, OrderSendEventDto> kafkaTemplate() {
-        return new KafkaTemplate<>(factory());
+    public KafkaTemplate<String, OrderNotificationEventDto> kafkaTemplateNotification() {
+        return new KafkaTemplate<>(factoryNotification());
+    }
+
+    @Bean
+    public ProducerFactory<String, OrderBuyProductEventDto> factoryBuyProduct() {
+        return new DefaultKafkaProducerFactory<>(getBaseKafkaConfig());
+    }
+
+    @Bean
+    public KafkaTemplate<String, OrderBuyProductEventDto> kafkaTemplateBuyProduct() {
+        return new KafkaTemplate<>(factoryBuyProduct());
     }
 }

@@ -28,7 +28,7 @@ import static io.restassured.RestAssured.given;
 @Testcontainers
 class UserLoginControllerTestIT {
 
-    private static final String URL = "http://localhost:";
+    private static final String URL = "http://localhost";
 
     @Container
     @ServiceConnection
@@ -46,7 +46,8 @@ class UserLoginControllerTestIT {
 
     @BeforeEach()
     void setup() {
-        RestAssured.baseURI = URL + port;
+        RestAssured.baseURI = URL;
+        RestAssured.port = port;
         var encode = encoder.encode("12345678901");
         var user = UserEntity
                 .builder()
@@ -68,9 +69,8 @@ class UserLoginControllerTestIT {
     void shouldReturn202WhenLoginSuccessful() {
         var loginJson = loader.load("userLogin/post-user-login-req-IT-200.json");
         given()
-                .log().all()
-                .contentType(ContentType.JSON)
                 .body(loginJson)
+                .contentType(ContentType.JSON)
                 .when()
                 .post("/login")
                 .then()

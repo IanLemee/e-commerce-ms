@@ -4,8 +4,7 @@ import com.tech.ian.exception.ProductOutOfStockException;
 import com.tech.ian.stock.commons.Factory;
 import com.tech.ian.stock.model.StockEntity;
 import com.tech.ian.stock.model.dto.StockCreateDto;
-import com.tech.ian.stock.model.dto.StockRequestDto;
-import com.tech.ian.stock.model.dto.StockResponseDto;
+import com.tech.ian.stock.config.kafka.dto.StockBuyProductDto;
 import com.tech.ian.stock.repository.StockRepository;
 import com.tech.ian.stock.utils.StockFactory;
 import org.junit.jupiter.api.DisplayName;
@@ -77,11 +76,9 @@ class StockServiceTest {
             var entity = Factory.stockEntity();
             var request = Factory.stockRequest();
             var expectedQuantity = entity.getQuantity() - request.quantity();
-            when(stockRepository.findByProduct("Phone")).thenReturn(Optional.of(entity));
+            when(stockRepository.findByProductAndUpdate("Phone", 4)).thenReturn(Optional.of(entity));
             when(stockRepository.save(entity)).thenReturn(entity);
-            when(stockFactory.buildStockResponse(entity.getProduct(), entity.getPrice())).thenReturn(Factory.stockResponse());
-            var stockResponseDto = service.buyProduct(request);
-            assertNotNull(stockResponseDto);
+            service.buyProduct(request);
             verify(stockRepository).save(captor.capture());
             var value = captor.getValue();
 
@@ -90,7 +87,7 @@ class StockServiceTest {
 
         @Test
         void shouldThrowException_WhenProductDoesNotExist() {
-            when(stockRepository.findByProduct("Phone")).thenReturn(Optional.empty());
+            when(stockRepository.findByProductAndUpdate("Phone", 4)).thenReturn(Optional.empty());
             var request = Factory.stockRequest();
             var productOutOfStockException = assertThrows(ProductOutOfStockException.class, () -> service.buyProduct(request));
             var expectedMessage = "Product out of stock";
@@ -100,10 +97,10 @@ class StockServiceTest {
 
         @Test
         void shouldThrowException_WhenRequestedQuantityExceedsAvailableStock(){
-            when(stockRepository.findByProduct("Phone")).thenReturn(Optional.of(Factory.stockEntity()));
-            var request = new StockRequestDto("Phone", 101);
+            when(stockRepository.findByProductAndUpdate("Phone", 103)).thenReturn(Optional.empty());
+            var request = new StockBuyProductDto("Phone", 103);
             var productOutOfStockException = assertThrows(ProductOutOfStockException.class, () -> service.buyProduct(request));
-            var expectedMessage = "Not enough items";
+            var expectedMessage = "Product out of stock";
             var actualMessage = productOutOfStockException.getMessage();
             assertEquals(expectedMessage, actualMessage);
         }

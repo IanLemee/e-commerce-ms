@@ -5,16 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38a396dc-76b6-479e-9c56-89bf9c72a177" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderNotificationEventDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/db-forest-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-core/src/main/java/com/tech/ian/exception/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons-core/src/main/java/com/tech/ian/exception/GlobalErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons-core/target/classes/com/tech/ian/exception/GlobalErrorHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons-core/target/classes/com/tech/ian/exception/GlobalErrorHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/tech/ian/notification/service/EmailSenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/tech/ian/notification/service/EmailSenderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/main/java/com/tech/ian/notification/utils/EmailTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/main/java/com/tech/ian/notification/utils/EmailTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification/src/test/java/com/tech/ian/notification/service/EmailSenderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification/src/test/java/com/tech/ian/notification/service/EmailSenderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/client/StockApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/client/StockApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/client/StripeApiClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/KafkaConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderEventDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/PaymentStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/PaymentStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/dto/CardDetailsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/model/dto/CardDetailsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/security/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/security/SpringSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/OrderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/UserContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/commons/BuildFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/service/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order/src/test/java/com/tech/ian/order/service/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/client/StockApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/client/StockApiClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/client/StripeApiClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/KafkaConsumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/KafkaProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/KafkaProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderEventDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderEventDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/config/kafka/dto/OrderSendEventDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/OrderEntity$OrderEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/OrderEntity$OrderEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/OrderEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/OrderEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/PaymentStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/PaymentStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/dto/CardDetailsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/model/dto/CardDetailsDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/repository/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/repository/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/security/SpringSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/security/SpringSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/JwtUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/OrderFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/UserContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/classes/com/tech/ian/order/utils/UserContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/commons/BuildFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest$create.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest$create.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest$getProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest$getProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/order/target/test-classes/com/tech/ian/order/service/OrderServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/stock/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stock/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/model/dto/StockRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/config/kafka/dto/StockBuyProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/repository/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/repository/StockRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/stock/target/classes/com/tech/ian/stock/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/utils/StockFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/utils/StockFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/commons/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/commons/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/controller/StockControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/controller/StockControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/service/StockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock/src/test/java/com/tech/ian/stock/service/StockServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/repo/VerificationFailureRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/repo/VerificationFailureRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserLoginControllerTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserLoginControllerTestIT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserRegisterControllerTestIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/controller/UserRegisterControllerTestIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/src/test/java/com/tech/ian/user/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +89,9 @@
         <option value="Dockerfile" />
         <option value="GitHub Action" />
         <option value="Interface" />
-        <option value="Record" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -71,17 +131,45 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.StockApplication.executor": "Run",
     "Docker.order: Compose Deployment.executor": "Run",
+    "JUnit.All in payment.executor": "Run",
+    "JUnit.OrderControllerTestIT$createOrder.executor": "Run",
+    "JUnit.OrderControllerTestIT$createOrder.p.executor": "Run",
+    "JUnit.OrderControllerTestIT$createOrder.shouldCreateOrderWhenSuccessful.executor": "Run",
+    "JUnit.OrderControllerTestIT$findAll.p.executor": "Run",
+    "JUnit.OrderControllerTestIT$findAll.shouldReturnAllOrders_WhenSuccessful.executor": "Run",
+    "JUnit.OrderControllerTestIT$getProduct.p.executor": "Run",
+    "JUnit.OrderControllerTestIT$getProduct.shouldGetProductWhenSuccessful.executor": "Run",
+    "JUnit.OrderControllerTestIT.executor": "Run",
+    "JUnit.OrderListenerTestIT.executor": "Run",
+    "JUnit.OrderServiceTest$create.executor": "Run",
     "JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful.executor": "Run",
     "JUnit.OrderServiceTest$create.shouldThrowProductOutOfStockException.executor": "Run",
     "JUnit.OrderServiceTest$getProduct.p.executor": "Run",
     "JUnit.OrderServiceTest$getProduct.shouldThrowProductOutOfStockException.executor": "Run",
+    "JUnit.OrderServiceTest.executor": "Run",
+    "JUnit.OrderTestIT.executor": "Run",
+    "JUnit.OrderTestIT.p.executor": "Run",
     "JUnit.StockControllerTest$butProduct.p.executor": "Run",
     "JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound.executor": "Run",
     "JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful.executor": "Run",
-    "JUnit.StockControllerTest.executor": "Coverage",
+    "JUnit.StockControllerTest$getProductInfo.shouldReturnStatus200_WhenRequestSuccessful.executor": "Run",
+    "JUnit.StockControllerTest$getProductInfo.shouldReturnStatus404_WhenProductNotFound.executor": "Run",
+    "JUnit.StockControllerTest.executor": "Run",
     "JUnit.StockControllerTest.shouldReturnStatus202_WhenCreateProductSuccessful.executor": "Run",
+    "JUnit.StockControllerTestIT$buyProduct.shouldDecreaseStockQuantity_WhenBuyProductSuccessful.executor": "Run",
+    "JUnit.StockControllerTestIT$create.p.executor": "Run",
+    "JUnit.StockControllerTestIT$create.shouldCreateANewProduct_WhenSuccessful.executor": "Run",
+    "JUnit.StockControllerTestIT$create.shouldIncreaseQuantity_WhenProductExist.executor": "Run",
+    "JUnit.StockControllerTestIT$getProductInfo.p.executor": "Run",
+    "JUnit.StockControllerTestIT$getProductInfo.shouldUseCacheWhenStored.executor": "Run",
+    "JUnit.StockControllerTestIT$getProductInfo.shouldUsePostgresWhenNotCache.executor": "Run",
+    "JUnit.StockControllerTestIT.executor": "Run",
+    "JUnit.StockServiceTest$buyProduct.shouldDecreaseStockQuantity_WhenPurchaseIsSuccessful.executor": "Run",
     "JUnit.StockServiceTest$buyProduct.shouldDecreaseTheProductQuantityWhenSuccessful.executor": "Debug",
+    "JUnit.StockServiceTest$buyProduct.shouldThrowException_WhenProductDoesNotExist.executor": "Run",
+    "JUnit.StockServiceTest$buyProduct.shouldThrowException_WhenRequestedQuantityExceedsAvailableStock.executor": "Run",
     "JUnit.StockServiceTest$buyProduct.shouldThrowProductOutOfStockExceptionNotEnoughItems.executor": "Run",
     "JUnit.StockServiceTest$buyProduct.shouldThrowProductOutOfStockExceptionProductOutOfStockWhenTheresNoItemsFound.executor": "Run",
     "JUnit.StockServiceTest$create.executor": "Coverage",
@@ -91,7 +179,7 @@
     "JUnit.StockServiceTest$getStockInfo.p.executor": "Run",
     "JUnit.StockServiceTest$getStockInfo.shouldReturnProduct_WhenSuccessful.executor": "Run",
     "JUnit.StockServiceTest$getStockInfo.shouldThrowException_WhenProductDoesNotExist.executor": "Run",
-    "JUnit.StockServiceTest.executor": "Coverage",
+    "JUnit.StockServiceTest.executor": "Run",
     "JUnit.UserLoginControllerTestIT and 1 more.executor": "Run",
     "JUnit.UserLoginControllerTestIT.executor": "Run",
     "JUnit.UserLoginControllerTestIT.shouldReturn202WhenLoginSuccessful.executor": "Run",
@@ -100,6 +188,11 @@
     "JUnit.UserRegisterControllerTestIT.executor": "Run",
     "JUnit.UserRegisterControllerTestIT.shouldCreateUserWhenSuccessful.executor": "Run",
     "JUnit.UserRegisterControllerTestIT.shouldVerifyUserWhenSuccessful.executor": "Run",
+    "JUnit.UserServiceTest$create.shouldThrowAnErrorWhenEmailAlreadyExists.executor": "Run",
+    "JUnit.UserServiceTest$enableAccount.shouldThrowUserAlreadyEnabledExceptionWhenAccountIsAlreadyActivated.executor": "Run",
+    "JUnit.UserServiceTest$enableAccount.shouldThrowWrongVerificationCodeExceptionWhenVerificationCodeIsDifferentFromCodeAccount.executor": "Run",
+    "JUnit.java in order.executor": "Run",
+    "JUnit.order in order.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -112,6 +205,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.OrderApplication.executor": "Run",
+    "Spring Boot.StockApplication (1).executor": "Run",
     "Spring Boot.StockApplication.executor": "Run",
     "Spring Boot.UserApplication (1).executor": "Run",
     "Spring Boot.UserApplication.executor": "Run",
@@ -119,7 +213,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/user/src/test/resources/userLogin",
+    "last_opened_file_path": "C:/Users/ianle/OneDrive/Documentos/Projetos/e-commerce-microservices/stock/src/test/resources/stock",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -135,18 +229,21 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
+      "mongo",
       "postgresql"
     ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.tech.ian.stock.config.kafka.dto" />
+      <recent name="com.tech.ian.notification.config.dto" />
       <recent name="com.tech.ian.order.model.dto" />
       <recent name="com.tech.ian.order.utils" />
       <recent name="com.tech.ian.order.security" />
-      <recent name="com.tech.ian.order.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ianle\OneDrive\Documentos\Projetos\e-commerce-microservices\stock\src\test\resources\stock" />
       <recent name="C:\Users\ianle\OneDrive\Documentos\Projetos\e-commerce-microservices\user\src\test\resources\userLogin" />
       <recent name="C:\Users\ianle\OneDrive\Documentos\Projetos\e-commerce-microservices\stock\src\main\resources" />
     </key>
@@ -154,6 +251,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.tech.ian.order.controller" />
       <recent name="com.tech.ian.stock.controller" />
       <recent name="com.tech.ian.stock.service" />
       <recent name="com.tech.ian.user.controller" />
@@ -173,89 +271,99 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="OrderApplication" value="STOPPED" />
+              <entry key="StockApplication (1)" value="FAILED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="JUnit.StockControllerTest">
+  <component name="RunManager" selected="JUnit.OrderServiceTest">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="StockControllerTest$butProduct.p" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="stock" />
+    <configuration name="OrderControllerTestIT$createOrder.shouldCreateOrderWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
+          <option name="PATTERN" value="com.tech.ian.order.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$butProduct" />
-      <option name="METHOD_NAME" value="p" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.order.controller.OrderControllerTestIT" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.controller.OrderControllerTestIT$createOrder" />
+      <option name="METHOD_NAME" value="shouldCreateOrderWhenSuccessful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="stock" />
+    <configuration name="OrderControllerTestIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
+          <option name="PATTERN" value="com.tech.ian.order.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$butProduct" />
-      <option name="METHOD_NAME" value="shouldReturnStatus404_WhenProductNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="stock" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest$create" />
-      <option name="METHOD_NAME" value="shouldReturnStatus202_WhenCreateProductSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StockControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="stock" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tech.ian.stock.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.stock.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.stock.controller.StockControllerTest" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.order.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.controller.OrderControllerTestIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user" />
+    <configuration name="OrderServiceTest$create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tech.ian.user.controller.*" />
+          <option name="PATTERN" value="com.tech.ian.order.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.tech.ian.user.controller.UserRegisterControllerTest$create" />
-      <option name="METHOD_NAME" value="shouldReturnStatus409WhenEmailAlreadyExists" />
+      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.order.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest$create" />
+      <option name="METHOD_NAME" value="shouldCreateAnOrderWhenSuccessful" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tech.ian.order.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tech.ian.order.service" />
+      <option name="MAIN_CLASS_NAME" value="com.tech.ian.order.service.OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -278,6 +386,13 @@
         <option name="region" />
         <option name="useCurrentConnection" value="false" />
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="payment" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tech.ian.payment.PaymentApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -310,11 +425,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.StockControllerTest" />
-      <item itemvalue="JUnit.StockControllerTest$butProduct.p" />
-      <item itemvalue="JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" />
-      <item itemvalue="JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" />
-      <item itemvalue="JUnit.UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" />
+      <item itemvalue="JUnit.OrderServiceTest" />
+      <item itemvalue="JUnit.OrderServiceTest$create" />
+      <item itemvalue="JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" />
+      <item itemvalue="JUnit.OrderControllerTestIT" />
+      <item itemvalue="JUnit.OrderControllerTestIT$createOrder.shouldCreateOrderWhenSuccessful" />
+      <item itemvalue="Spring Boot.PaymentApplication" />
       <item itemvalue="Spring Boot.NotificationApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
       <item itemvalue="Spring Boot.S3FailedEventConsumerApplication" />
@@ -323,11 +439,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StockControllerTest" />
-        <item itemvalue="JUnit.StockControllerTest$butProduct.shouldReturnStatus404_WhenProductNotFound" />
-        <item itemvalue="JUnit.UserRegisterControllerTest$create.shouldReturnStatus409WhenEmailAlreadyExists" />
-        <item itemvalue="JUnit.StockControllerTest$butProduct.p" />
-        <item itemvalue="JUnit.StockControllerTest$create.shouldReturnStatus202_WhenCreateProductSuccessful" />
+        <item itemvalue="JUnit.OrderServiceTest" />
+        <item itemvalue="JUnit.OrderServiceTest$create.shouldCreateAnOrderWhenSuccessful" />
+        <item itemvalue="JUnit.OrderServiceTest$create" />
+        <item itemvalue="JUnit.OrderControllerTestIT" />
+        <item itemvalue="JUnit.OrderControllerTestIT$createOrder.shouldCreateOrderWhenSuccessful" />
       </list>
     </recent_temporary>
   </component>
@@ -359,7 +475,16 @@
       <workItem from="1767796822697" duration="8263000" />
       <workItem from="1767874642165" duration="7084000" />
       <workItem from="1767909805022" duration="2261000" />
-      <workItem from="1767957144890" duration="11384000" />
+      <workItem from="1767957144890" duration="12017000" />
+      <workItem from="1768238570023" duration="2951000" />
+      <workItem from="1768243782068" duration="9787000" />
+      <workItem from="1768316827824" duration="8798000" />
+      <workItem from="1768397771557" duration="17152000" />
+      <workItem from="1768569160739" duration="8768000" />
+      <workItem from="1768920952890" duration="6892000" />
+      <workItem from="1769001418451" duration="14721000" />
+      <workItem from="1769089837924" duration="9070000" />
+      <workItem from="1769175980755" duration="14737000" />
     </task>
     <servers />
   </component>
@@ -373,15 +498,6 @@
           <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java</url>
-          <line>18</line>
-          <properties class="com.tech.ian.order.controller.OrderController" method="createOrder">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/user/src/main/java/com/tech/ian/user/controller/UserLoginController.java</url>
@@ -402,28 +518,55 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/service/StockService.java</url>
-          <line>42</line>
-          <properties class="com.tech.ian.stock.service.StockService" method="buyProduct">
+          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java</url>
+          <line>19</line>
+          <properties class="com.tech.ian.stock.controller.StockController" method="create">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/stock/src/main/java/com/tech/ian/stock/controller/StockController.java</url>
-          <line>25</line>
-          <properties class="com.tech.ian.stock.controller.StockController" method="buyProduct">
+          <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java</url>
+          <line>35</line>
+          <properties class="com.tech.ian.order.controller.OrderController" method="findAll">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/utils/UserContext.java</url>
+          <line>9</line>
+          <properties class="com.tech.ian.order.utils.UserContext" method="getCurrentUserId">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/controller/OrderController.java</url>
+          <line>23</line>
+          <properties class="com.tech.ian.order.controller.OrderController" method="createOrder">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order/src/main/java/com/tech/ian/order/service/OrderService.java</url>
+          <line>48</line>
+          <properties class="com.tech.ian.order.service.OrderService" method="createOrder">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockControllerTest.ic" NAME="StockControllerTest Coverage Results" MODIFIED="1767993238481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockControllerTest.ic" NAME="StockControllerTest Coverage Results" MODIFIED="1768243094455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.tech.ian.stock.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/e_commerce_microservices$StockServiceTest_create.ic" NAME="StockServiceTest$create Coverage Results" MODIFIED="1767895345673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
@@ -431,6 +574,12 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/e_commerce_microservices$StockServiceTest.ic" NAME="StockServiceTest Coverage Results" MODIFIED="1767973392315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.tech.ian.stock.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$StockControllerTestIT.ic" NAME="StockControllerTestIT Coverage Results" MODIFIED="1768503908405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.tech.ian.stock.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/e_commerce_microservices$OrderServiceTest.ic" NAME="OrderServiceTest Coverage Results" MODIFIED="1768504269329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.tech.ian.order.service.*</FILTER>
     </SUITE>
   </component>
   <component name="github-copilot-workspace">

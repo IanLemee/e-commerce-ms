@@ -2,7 +2,7 @@ package com.tech.ian.stock.controller;
 
 import com.tech.ian.exception.ProductOutOfStockException;
 import com.tech.ian.stock.commons.Loader;
-import com.tech.ian.stock.model.dto.StockRequestDto;
+import com.tech.ian.stock.config.kafka.dto.StockBuyProductDto;
 import com.tech.ian.stock.model.dto.StockResponseDto;
 import com.tech.ian.stock.service.StockService;
 import lombok.SneakyThrows;
@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(controllers = StockController.class)
@@ -56,38 +57,33 @@ class StockControllerTest {
     }
 
     @Nested
-
-    class butProduct {
-        @Test
+    class getProductInfo {
         @SneakyThrows
-        void shouldReturnStatus200_WhenBuyProductSuccessful() {
+        @Test
+        void shouldReturnStatus200_WhenRequestSuccessful() {
             var request = new StockResponseDto("iPhone", BigDecimal.valueOf(6000.0));
-            when(service.buyProduct(any(StockRequestDto.class))).thenReturn(request);
-            var requestJson = loader.load("stock/put-stock-request-buy-product-200.json");
-            var responseJson = loader.load("stock/put-stock-response-buy-product-200.json");
+            doNothing().when(service).buyProduct(any(StockBuyProductDto.class));
             mockMvc.perform(MockMvcRequestBuilders
-                    .put(URL)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(requestJson)
-            ).andDo(MockMvcResultHandlers.print())
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content().json(responseJson));
+                            .get(URL + "/getProduct")
+                            .param("product", "Phone")
+                            .param("quantity", "3")
+                    ).andDo(MockMvcResultHandlers.print())
+                    .andExpect(MockMvcResultMatchers.status().isOk());
         }
 
         @Test
         @SneakyThrows
         void shouldReturnStatus404_WhenProductNotFound() {
-            when(service.buyProduct(any(StockRequestDto.class))).thenThrow(ProductOutOfStockException.class);
-            var requestJson = loader.load("stock/put-stock-request-buy-product-200.json");
+            when(service.getStockInfo(any(StockBuyProductDto.class))).thenThrow(ProductOutOfStockException.class);
             mockMvc.perform(MockMvcRequestBuilders
-                            .put(URL)
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content(requestJson)
+                            .get(URL + "/getProduct")
+                            .param("product", "Phone")
+                            .param("quantity", "3")
                     ).andDo(MockMvcResultHandlers.print())
                     .andExpect(MockMvcResultMatchers.status().isNotFound());
+
         }
     }
-
 
 
 }

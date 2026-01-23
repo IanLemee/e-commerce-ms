@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 @EnableWebSecurity
 @Configuration
 @RequiredArgsConstructor
@@ -17,12 +19,15 @@ public class SpringSecurity {
 
     private final AuthFilter authFilter;
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request ->
-                        request.requestMatchers(HttpMethod.GET, "/order/*").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/order").permitAll()
+                        request
+                                .requestMatchers(HttpMethod.POST, "order/create").permitAll()
+                                .requestMatchers(HttpMethod.GET, "order/info").permitAll()
+                                .requestMatchers(HttpMethod.GET, "order/orders").authenticated()
                                 .anyRequest().permitAll()).addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
     }
 }

@@ -4,5 +4,5 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.YearMonth;
 
-public record CardDetailsDto(String cardNumber, @JsonFormat(pattern = "MM/yy") YearMonth expDate, String securityCode, String nameOnCard) {
+public record CardDetailsDto(String paymentMethods) {
 }

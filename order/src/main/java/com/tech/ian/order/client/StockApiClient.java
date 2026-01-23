@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
-@FeignClient(name = "Stock-service", url = "http://localhost:7070/stock")
+@FeignClient(name = "Stock-service", url = "${stock-service.url}")
 @Component
 public interface StockApiClient {
 

@@ -25,7 +25,7 @@ import static io.restassured.RestAssured.given;
 @Testcontainers
 class UserRegisterControllerTestIT {
 
-    private static final String URL = "http://localhost:";
+    private static final String URL = "http://localhost";
 
     @Container
     @ServiceConnection
@@ -39,8 +39,12 @@ class UserRegisterControllerTestIT {
 
     @BeforeEach()
     void setup() {
-        RestAssured.baseURI = URL + port;
+        RestAssured.baseURI = URL;
+        RestAssured.port = port;
     }
+
+    // Todo
+    // should return json response
 
     @Test
     void shouldCreateUserWhenSuccessful() {
@@ -52,7 +56,7 @@ class UserRegisterControllerTestIT {
                 .multiPart("data", testUser, "application/json")
                 .multiPart("file", "photo.png", imageBytes,"image/png")
                 .when()
-                .post("/register/create")
+                .post("register/create")
                 .then()
                 .statusCode(HttpStatus.CREATED.value());
     }

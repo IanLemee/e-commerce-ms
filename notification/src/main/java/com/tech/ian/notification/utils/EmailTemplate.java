@@ -1,6 +1,7 @@
 package com.tech.ian.notification.utils;
 
 import com.tech.ian.notification.config.dto.EmailEventDto;
+import com.tech.ian.notification.config.dto.OrderEventDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -24,5 +25,13 @@ public class EmailTemplate {
         simpleMailMessage.setSubject("Activation code");
         simpleMailMessage.setText("Your activation code is " + dto.code());
         mailSender.send(simpleMailMessage);
+    }
+
+    public void sendEmailOrderConfirmation(OrderEventDto dto) {
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        simpleMailMessage.setFrom(email);
+        simpleMailMessage.setTo(dto.customerId());
+        simpleMailMessage.setSubject("Payment Approved");
+        simpleMailMessage.setText("Payment Approved");
     }
 }

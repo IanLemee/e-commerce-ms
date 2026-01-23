@@ -1,6 +1,6 @@
 package com.tech.ian.order.commons;
 
-import com.tech.ian.order.config.kafka.dto.OrderSendEventDto;
+import com.tech.ian.order.config.kafka.dto.OrderNotificationEventDto;
 import com.tech.ian.order.model.OrderEntity;
 import com.tech.ian.order.model.OrderItem;
 import com.tech.ian.order.model.PaymentStatus;
@@ -9,8 +9,7 @@ import com.tech.ian.order.model.dto.OrderRequestDto;
 import com.tech.ian.order.model.dto.ProductResponseDto;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.YearMonth;
+import java.time.LocalDateTime;
 
 public class BuildFactory {
 
@@ -21,11 +20,11 @@ public class BuildFactory {
         BigDecimal totalPrice = BigDecimal.valueOf(1000.00);
         var item = OrderItem.builder().product("Phone").quantity(1).price(totalPrice).build();
         return OrderEntity.builder()
-                .id("1")
                 .customerId("test@mail.com")
                 .totalPrice(totalPrice)
                 .paymentStatus(PaymentStatus.PENDING)
                 .item(item)
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 
@@ -33,12 +32,12 @@ public class BuildFactory {
         return new ProductResponseDto("Phone", BigDecimal.valueOf(1000.00));
     }
 
-    public static OrderSendEventDto orderSendEventBuild() {
-        return new OrderSendEventDto("1", "test@mail.com", BigDecimal.valueOf(1000.0), PaymentStatus.PENDING, "token");
+    public static OrderNotificationEventDto orderSendEventBuild() {
+        return new OrderNotificationEventDto("1", "test@mail.com", BigDecimal.valueOf(1000.0), PaymentStatus.APPROVED);
     }
 
     public static OrderRequestDto orderReqBuild() {
-        var cardDetails = new CardDetailsDto("1111222233334444", YearMonth.now(), "123", "Test");
+        var cardDetails = new CardDetailsDto("pm_card_visa");
         return new OrderRequestDto("Phone", 1, cardDetails);
     }
 }

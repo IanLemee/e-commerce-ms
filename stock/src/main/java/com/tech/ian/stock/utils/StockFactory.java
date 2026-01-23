@@ -17,7 +17,4 @@ public class StockFactory {
         return new StockCreateDto(product, quantity, price);
     }
 
-    public StockResponseDto buildStockResponse(String product, BigDecimal price) {
-        return new StockResponseDto(product, price);
-    }
 }

@@ -31,5 +31,11 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="orderdb@localhost" uuid="8013e18d-3ef8-478d-9ed8-fc4151cab8ed">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
