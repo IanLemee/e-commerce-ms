@@ -1,4 +1,3 @@
-Markdown
 # 🛒 E-Commerce Microservices
 
 Um sistema de e-commerce robusto e escalável construído com arquitetura de microsserviços. O projeto utiliza comunicação assíncrona baseada em eventos (Kafka), estratégias de resiliência e múltiplos bancos de dados (Polyglot Persistence) adequados para o domínio de cada serviço.
@@ -43,25 +42,26 @@ Além disso, é necessário configurar as seguintes variáveis de ambiente:
 ```bash
 git clone [https://github.com/seu-usuario/ianlemee-e-commerce-ms.git](https://github.com/seu-usuario/ianlemee-e-commerce-ms.git)
 cd ianlemee-e-commerce-ms
+
 2. Compile o projeto e os módulos auxiliares:
 Como o projeto utiliza o módulo commons-core como dependência base, instale-o primeiro:
 
-Bash
 mvn clean install -f commons-core/pom.xml
 mvn clean package -DskipTests
+
 3. Suba a infraestrutura via Docker Compose:
 Cada microsserviço possui seu próprio docker-compose.yaml que sobe o banco de dados/infra necessária (Kafka, Postgres, Mongo, Redis). Para o ambiente completo, suba os containers das pastas específicas ou consolide-os. Exemplo de inicialização da infra:
 
-Bash
 # Subir Kafka e Zookeeper (geralmente localizados na raiz ou no compose principal)
 docker-compose -f docker-compose.yaml up -d
+
 4. Execute os microsserviços:
 Você pode rodar as aplicações Spring Boot diretamente pela sua IDE ou via Maven:
 
-Bash
 mvn spring-boot:run -pl user
 mvn spring-boot:run -pl stock
 # ... repita para os demais serviços
+
 📡 Principais Endpoints
 👤 User Service (Porta 8080)
 POST /register/create - Registra um novo usuário com foto (Multipart/form-data).
@@ -89,8 +89,8 @@ O projeto conta com uma suíte de testes de integração robusta utilizando Test
 
 Para rodar todos os testes do projeto:
 
-Bash
 mvn test
+
 🔁 CI/CD
 O projeto conta com pipelines configuradas no GitHub Actions (.github/workflows/) para:
 
