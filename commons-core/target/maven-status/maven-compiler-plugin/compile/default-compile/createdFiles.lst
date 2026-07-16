@@ -1,0 +1,4 @@
+com\tech\ian\exceptions\GlobalErrorHandler.class
+com\tech\ian\exceptions\BaseAppException.class
+com\tech\ian\exceptions\ErrorResponse.class
+com\tech\ian\exceptions\ProductOutOfStockException.class

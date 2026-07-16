@@ -1,0 +1,90 @@
+name: CI/CD Pipeline User-MS
+
+on:
+  push:
+    branches: [ "develop" ]
+    paths:
+      - 'user/**'
+      - 'pom.xml'
+      - '.github/workflows/user-pipeline.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with maven
+        run: mvn clean package -pl user -am
+
+      - name: Add JaCoCo code coverage report
+        uses: PavanMudigonda/jacoco-reporter@v5.0
+        with:
+          coverage_results_path: user/target/site/jacoco/jacoco.xml
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo
+          github_token: ${{ secrets.GIT_TOKEN }}
+          skip_check_run: true
+          minimum_coverage: 40
+          fail_below_threshold: false
+          publish_only_summary: false
+
+      - name: Add JaCoCo report to workflow run summary
+        run: |
+          echo "## JaCoCo Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "| Outcome | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| Code Coverage % | ${{ steps.jacoco_reporter.outputs.coverage_percentage }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| :heavy_check_mark: Number of Lines Covered | ${{ steps.jacoco_reporter.outputs.covered_lines }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| :x: Number of Lines Missed | ${{ steps.jacoco_reporter.outputs.missed_lines }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Number of Lines | ${{ steps.jacoco_reporter.outputs.total_lines }} |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Docker actions
+        uses: ./.github/actions/docker-actions
+        with:
+         docker_username: ${{secrets.DOCKER_USERNAME}}
+         docker_password: ${{secrets.DOCKER_PASSWORD}}
+         docker_image: user-ms
+
+      - name: Copy docker compose to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "user/docker-compose.yaml, user/Dockerfile"
+          target: "/home/ec2-user/app-user"
+          strip_components: '1'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Deploy and Start on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/app-user
+            
+            echo "Starting app"
+            docker-compose pull
+            docker-compose up -d --remove-orphans
+            docker image prune -f
+            echo "App started"
+            exit 0

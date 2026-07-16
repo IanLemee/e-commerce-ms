@@ -1,0 +1,14 @@
+package com.tech.ian.notification;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class NotificationApplicationTests {
+	// TODO
+	//  CREATE TESTS
+	@Test
+	void contextLoads() {
+	}
+
+}

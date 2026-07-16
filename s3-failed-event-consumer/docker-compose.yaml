@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: s3-failed-event-consumer-service
+    image: ianlemee/s3-failed-event-consumer-ms:latest
+    build:
+      context: ../
+      dockerfile: s3-failed-event-consumer/Dockerfile
+    ports:
+      - "8080:8080"

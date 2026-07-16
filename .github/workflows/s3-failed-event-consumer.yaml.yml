@@ -1,0 +1,73 @@
+name: CI/CD Pipeline S3-failed-event-consumer-ms
+
+on:
+  push:
+    branches: ['develop']
+    paths:
+      - 'pom.xml'
+      - 's3-failed-event-consumer/**'
+      - '.github/workflows/s3-failed-event-consumer.yaml.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
+      - name: Build App
+        run: mvn clean package -pl s3-failed-event-consumer -am
+
+      - name: Login in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+
+      - name: Build and Push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: s3-failed-event-consumer/Dockerfile
+          push: 'true'
+          tags: ${{secrets.DOCKER_USERNAME}}/s3-failed-event-consumer-ms:latest
+
+      - name: Copy docker-compose to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST_S3 }}
+          username: ${{ secrets.EC2_USER_S3 }}
+          key: ${{ secrets.EC2_SSH_KEY_S3 }}
+          target: order/docker-compose.yaml
+          source: "/tmp"
+          strip_components: '1'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Run App
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST_S3_MS }}
+          username: ${{ secrets.EC2_USER_S3_MS }}
+          key: ${{ secrets.EC2_SSH_KEY_S3_MS }}
+          script: |
+            mkdir -p /home/ec2-user/app-s3-failed-event-consumer-ms
+            cd /home/ec2-user/app-s3-failed-event-consumer-ms
+            
+            docker-compose pull
+            docker-compose up -d --remove-orphans
+            docker image prune -f
+            echo "App started"
+            exit 0
+

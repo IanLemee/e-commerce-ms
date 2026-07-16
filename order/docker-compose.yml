@@ -1,0 +1,17 @@
+services:
+  app:
+    container_name: order-service
+    image: ianlemee/order-ms:latest
+    build:
+      context: ../
+      dockerfile: order/Dockerfile
+    ports:
+      - "8080:8080"
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=1234
